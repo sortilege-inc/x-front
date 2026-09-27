@@ -1,0 +1,37 @@
+EXTENSION "Fixture_Layer" EXTENDS "marvelmultiverse" {
+    NAME "The layer build's own fixture"
+    VERSION "0.1.0"
+    SPEC_VERSION "0.5"
+    RELEASE_DATE "2026-09-27"
+
+    # Not game content. The smallest layer that exercises every path of build/build_layer.py: one
+    # character on the corpus's Character chassis with typed-list rows (the references gate), and a
+    # MODIFY and CONCERNS by name on a power of the corpus (the names gate). Built only to a
+    # scratch folder by the layer's tests, never into data/.
+
+    MODIFY ^"Flexible Fingers" {
+        GUIDANCE {
+            ENTRY ^"fixture-guidance" #FXLayerFixtureGuide01 {
+                CONCERNS [ ^"Flexible Fingers" ]
+                TOPICS [ "fixture" ]
+                TEXT "A fixture guidance entry, not a rule."
+            }
+        }
+    }
+
+    #FXLayerFixtureChar0001 ^"Fixture Hero" DEF {
+        EXTENDS #mmrpgCharacter0000000 ^"Character"
+
+        PROPERTIES {
+            ^"Name" STRING "FIXTURE HERO"
+            ^"Rank" STRING "1"
+            ^"Speeds" LIST OF #mmrpgSpeed00000000000 ^"Speed" [
+                DEF { ^"Mode" STRING "Run"  ^"Speed" STRING "5" }
+            ]
+            ^"Powers" LIST OF #mmrpgPowerGroup000000 ^"Power Group" [
+                DEF { ^"Set" STRING "Plasticity"  ^"Powers" LIST OF #mmrpgPowerEntry000000 ^"Power Entry" [DEF { ^"Name" STRING "Flexible Fingers"  ^"Printed" STRING "Flexible Fingers" }] }
+            ]
+            ^"History" STRING "A fixture for the layer build, not a character."
+        }
+    }
+}

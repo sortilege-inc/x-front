@@ -184,6 +184,8 @@
         cur.reported = true;
         if (o.onResolve) o.onResolve(Object.assign(r, { label }));
       }
+      // what the page adds under a finished check (a sheet's damage, its Karma button)
+      if (!cur.edges && o.extra) { const x = o.extra(Object.assign(r, { label }), box); if (x) out.appendChild(x); }
     }
     const go = () => {
       cur = start({ ability: ability.value, tn: tn.value, edges: Number(edges.value) || 0, troubles: Number(troubles.value) || 0 }, rollDie);
@@ -198,8 +200,16 @@
       el('button', { class: 'btn primary', type: 'button', onclick: go }, ['Roll d616']),
     ]));
     box.appendChild(out);
+    // an edge granted after the roll (a sheet's Karma: "After a character makes an action check, they
+    // can spend a point of Karma to gain an edge on the check", Karma): one more reroll, and the
+    // check reported again when it is done
+    box.grantEdge = () => { if (!cur) return; cur.edges += 1; cur.reported = false; draw(); };
+    box.result = () => (cur ? Object.assign(result(cur), { label }) : null);
+    box.check = () => cur;   // this check, as an identity (a sheet spends one Karma on each at most)
+    box.meta = {};
     // a sheet's check button: the ability score to add, and what the roll is for
     box.preset = (p) => {
+      box.meta = p.meta || {};
       if (p.ability != null) ability.value = p.ability;
       label = p.label || null;
       forLine.textContent = label ? 'Rolling for ' + label : '';

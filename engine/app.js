@@ -1,8 +1,10 @@
-// engine/app.js — the GM page's shell: a sidebar of panels and three slots.
+// engine/app.js — the GM page's shell: a sidebar of panels in sections, and regions laid out by a preset.
+// Ported from sortilege-vtt-daggerheart (its GM workbench, 0002b45: sectioned nav, layout presets,
+// click-to-select regions).
 //
-// Wide (≥ 1100px): three columns, each showing one panel picked from the registry
-// (default Module · Scene · Inspector; the choice is a per-browser preference).
-// Narrow: one panel at a time, the sidebar as tabs. Panels never know which.
+// Wide (≥ 1100px): the regions of the layout the GM picks (Settings ▸ Layout), each showing one
+// panel from the registry (the choices are per-browser preferences); a click selects a region, and
+// a nav choice then opens there. Narrow: one panel at a time. Panels never know which.
 (function () {
   const { el } = window.VttRender;
   const State = window.VttState;
@@ -10,8 +12,23 @@
   const CFG = window.VttConfig;
 
   const WIDE = 1100;
-  // the three panels a fresh browser opens on: the system names them in engine/config.js
-  const DEFAULT_SLOTS = (CFG.defaultSlots && CFG.defaultSlots.length === 3) ? CFG.defaultSlots.slice() : ['tracker', 'scene', 'inspector'];
+  // the panels a fresh browser opens each region on: the system names the first three in
+  // engine/config.js; the split layouts fall back to these (then more) for their extra regions.
+  const DEFAULT_SLOTS = (CFG.defaultSlots && CFG.defaultSlots.length >= 3) ? CFG.defaultSlots.slice() : ['frame', 'party', 'inspector'];
+  const REGION_FALLBACK = DEFAULT_SLOTS.concat(['overview', 'scenes', 'threads', 'log']);
+
+  // The wide-mode layouts the GM picks from (Settings ▸ Layout — a per-browser preference). A layout
+  // is a set of columns; a column holds one region or two stacked (top over bottom). `regions` is how
+  // many independent panel regions it has, filled in reading order (each column top-to-bottom). The
+  // numbers in `cols` are region indices, so the CSS (.ly-* ▸ [data-region]) can place each one.
+  const LAYOUTS = [
+    { id: '3row',           label: 'Three rows',                 regions: 3, cls: 'ly-3row',    cols: [[0, 1, 2]] },
+    { id: '3col',           label: 'Three columns',              regions: 3, cls: 'ly-3col',    cols: [[0], [1], [2]] },
+    { id: '4col',           label: 'Four columns',               regions: 4, cls: 'ly-4col',    cols: [[0], [1], [2], [3]] },
+    { id: '3col-split1',    label: 'Three columns, first split', regions: 4, cls: 'ly-3col-s1', cols: [[0, 1], [2], [3]] },
+    { id: '4col-splitends', label: 'Four columns, ends split',   regions: 6, cls: 'ly-4col-se', cols: [[0, 1], [2], [3], [4, 5]] },
+  ];
+  const DEFAULT_LAYOUT = '3col';
   const main = document.getElementById('main');
   const nav = document.getElementById('nav');
   const brand = document.getElementById('brand');
@@ -20,34 +37,90 @@
   let single = DEFAULT_SLOTS[0];
   let ctxs = [];
 
-  // a saved panel the page no longer has falls back to the default
-  function slots() {
+  function layoutDef() {
+    const id = State.ui('layout');
+    return LAYOUTS.filter((l) => l.id === id)[0] || LAYOUTS.filter((l) => l.id === DEFAULT_LAYOUT)[0];
+  }
+
+  // the panel shown in region i: the saved choice if it is a real, nav-visible panel; else a sensible
+  // default (also nav-visible), so a region never surfaces a pane the nav has since dropped
+  function slotFor(i) {
+    const vis = {};
+    navPanels().forEach((p) => { vis[p.id] = 1; });
     const s = State.ui('slots');
-    if (!Array.isArray(s) || s.length !== 3) return DEFAULT_SLOTS.slice();
-    return s.map((id, i) => (Panels.PANELS[id] ? id : DEFAULT_SLOTS[i]));
+    const id = Array.isArray(s) ? s[i] : null;
+    if (id && Panels.PANELS[id] && vis[id]) return id;
+    const fb = REGION_FALLBACK[i];
+    if (fb && Panels.PANELS[fb] && vis[fb]) return fb;
+    const first = navPanels()[0];
+    return first ? first.id : (fb || 'overview');
+  }
+  function setSlot(i, id) {
+    const lay = layoutDef();
+    const s = [];
+    for (let k = 0; k < lay.regions; k++) s[k] = (k === i) ? id : slotFor(k);
+    State.ui('slots', s);
+  }
+  function shownIds() {
+    const lay = layoutDef();
+    const out = [];
+    for (let i = 0; i < lay.regions; i++) out.push(slotFor(i));
+    return out;
+  }
+  // the region the GM last clicked into — where a nav choice opens (else the browsing region, the last)
+  function focusRegion() {
+    const f = State.ui('focus');
+    const lay = layoutDef();
+    return (typeof f === 'number' && f >= 0 && f < lay.regions) ? f : null;
+  }
+
+  // the nav's groups (the system's VttNav: [{ ids }], dividers between) — or one flat group
+  function navGroups() {
+    const g = window.VttNav;
+    return (Array.isArray(g) && g.length) ? g : [{ ids: Panels.list().map((p) => p.id) }];
+  }
+  // the panels the nav shows (and so may be picked into a region): the grouped set, in group order
+  function navPanels() {
+    const seen = {};
+    const out = [];
+    navGroups().forEach((grp) => (grp.ids || []).forEach((id) => {
+      if (!seen[id] && Panels.PANELS[id]) { seen[id] = 1; out.push(Object.assign({ id }, Panels.PANELS[id])); }
+    }));
+    return out;
   }
 
   function teardown() {
     ctxs.splice(0).forEach((c) => c.teardown());
   }
 
-  function mountSlot(id, slotIndex) {
+  function mountSlot(region) {
+    const id = region == null ? single : slotFor(region);
     const ctx = Panels.makeCtx(open);
     ctxs.push(ctx);
     const head = el('div', { class: 'slot-head' }, [el('span', {}, [Panels.PANELS[id] ? Panels.PANELS[id].label : id])]);
-    if (slotIndex != null) {
+    if (region != null) {
       const pick = el('select', { class: 'slot-pick', title: 'Show another panel here' });
-      Panels.list().forEach((p) => pick.appendChild(el('option', { value: p.id, selected: p.id === id || null }, [p.label])));
-      pick.addEventListener('change', () => {
-        const s = slots();
-        s[slotIndex] = pick.value;
-        State.ui('slots', s);
-        render();
-      });
+      navPanels().forEach((p) => pick.appendChild(el('option', { value: p.id, selected: p.id === id || null }, [p.label])));
+      pick.addEventListener('change', () => { setSlot(region, pick.value); render(); });
       head.appendChild(pick);
     }
     const body = el('div', { class: 'slot-body' });
-    const slot = el('section', { class: 'slot slot-' + id }, [head, body]);
+    const focused = region != null && focusRegion() === region;
+    const slot = el('section', { class: 'slot slot-' + id + (focused ? ' slot--focus' : ''), 'data-region': region == null ? null : String(region) }, [head, body]);
+    // clicking into a region selects it: a nav choice then opens here (engine/app.js open()). The
+    // outline moves without a re-render, so the panel keeps its state and scroll. On `click`, not
+    // `mousedown`: saving the choice emits state:changed and the panels redraw, and on mousedown
+    // that swapped the button out from under the pointer, so the first click into an unselected
+    // region did nothing (found here at M3; sortilege-vtt-daggerheart has the same handler).
+    if (region != null) {
+      slot.addEventListener('click', () => {
+        if (focusRegion() === region) return;
+        State.ui('focus', region);
+        const prev = main.querySelector('.slot--focus');
+        if (prev) prev.classList.remove('slot--focus');
+        slot.classList.add('slot--focus');
+      });
+    }
     Panels.mount(body, id, ctx);
     return slot;
   }
@@ -56,19 +129,24 @@
     teardown();
     main.innerHTML = '';
     mode = window.innerWidth >= WIDE ? 'wide' : 'single';
-    main.className = 'main ' + mode;
-    if (mode === 'wide') slots().forEach((id, i) => main.appendChild(mountSlot(id, i)));
-    else main.appendChild(mountSlot(single, null));
+    if (mode === 'wide') {
+      const lay = layoutDef();
+      main.className = 'main wide ' + lay.cls;
+      lay.cols.forEach((colRegions) => main.appendChild(el('div', { class: 'slot-col' }, colRegions.map((r) => mountSlot(r)))));
+    } else {
+      main.className = 'main single';
+      main.appendChild(mountSlot(null));
+    }
     buildNav();
   }
 
   function open(id) {
     if (mode === 'wide') {
-      const s = slots();
-      if (s.indexOf(id) === -1) {
-        s[2] = id;   // the third column is the browsing column
-        State.ui('slots', s);
-      }
+      const lay = layoutDef();
+      // open into the region the GM selected; with none selected, the browsing region (the last)
+      const target = focusRegion() != null ? focusRegion() : (lay.regions - 1);
+      setSlot(target, id);
+      State.ui('focus', target);
       render();
       return;
     }
@@ -77,11 +155,25 @@
     window.scrollTo(0, 0);
   }
 
+  function setLayout(id) {
+    if (!LAYOUTS.some((l) => l.id === id)) return;
+    State.ui('layout', id);
+    const f = State.ui('focus');
+    const lay = LAYOUTS.filter((l) => l.id === id)[0];
+    if (typeof f === 'number' && f >= lay.regions) State.ui('focus', lay.regions - 1);
+    render();
+  }
+
   function buildNav() {
     nav.innerHTML = '';
-    const shown = mode === 'wide' ? slots() : [single];
-    Panels.list().forEach((p) => {
-      nav.appendChild(el('li', {}, [el('button', { class: 'navbtn' + (shown.indexOf(p.id) !== -1 ? ' active' : ''), type: 'button', onclick: () => open(p.id) }, [p.label])]));
+    const shown = mode === 'wide' ? shownIds() : [single];
+    navGroups().forEach((grp, gi) => {
+      if (gi) nav.appendChild(el('li', { class: 'nav-sep', 'aria-hidden': 'true' }, []));
+      (grp.ids || []).forEach((id) => {
+        const p = Panels.PANELS[id];
+        if (!p) return;
+        nav.appendChild(el('li', {}, [el('button', { class: 'navbtn' + (shown.indexOf(id) !== -1 ? ' active' : ''), type: 'button', onclick: () => open(id) }, [p.label])]));
+      });
     });
     const c = State.state.campaign;
     brand.innerHTML = '';
@@ -162,12 +254,13 @@
     wc.appendChild(el('button', { class: 'btn ghost', type: 'button', onclick: () => window.open(CFG.pages.table + '?view=player', CFG.channel + '-player') }, ['Open player view']));
   }
 
-  window.VttApp = { open, render, mode: () => mode };
+  window.VttApp = { open, render, setLayout, layouts: () => LAYOUTS.map((l) => ({ id: l.id, label: l.label, cols: l.cols })), currentLayout: () => layoutDef().id, mode: () => mode };
 
   // The veil (PLAYBOOK §4b.3): the GM page may stand behind a warning (VttConfig.gmGate = { title,
   // text, enter, leave }) — a courtesy to a player who opens /gm/ on the public site, not access
   // control. Passed once per tab (sessionStorage); "leave" goes back to the site.
   const gate = CFG.gmGate;
+  if (CFG.title) document.title = CFG.title + ' — the GM’s table';
   const GATE_KEY = (CFG.storagePrefix || 'sortilege-vtt') + ':gm-gate';
   let passed = !gate;
   try { passed = passed || sessionStorage.getItem(GATE_KEY) === '1'; } catch (e) { /* storage off: ask every load */ }

@@ -379,6 +379,8 @@ window.VttSiteTabs = (function () {
   return [
     { id: 'book', label: 'The books', render: renderBook, books: true },
     { id: 'characters', label: 'Characters', render: renderCharacters },
+    // the character creator (system/marvelmultiverse/creator.js): always shown, books on or off (§4b.4)
+    { id: 'create', label: 'Make a character', render: (c, path, ctx) => window.MMCreator.render(c, path, ctx) },
     { id: 'powers', label: 'Powers', render: renderPowers },
     { id: 'options', label: 'Character options', render: renderOptions },
     { id: 'multiverse', label: 'The Multiverse', render: renderWorld, books: true },

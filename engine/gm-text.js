@@ -163,6 +163,24 @@ window.VttGmText = (function () {
     return box;
   }
 
+  // a live filter over the .gm-sec cards already in `root`: hides those that don't match the query,
+  // by title/text/subsections (their textContent). No redraw, so the input keeps focus as you type.
+  function filterBox(root, placeholder) {
+    const inp = el('input', { type: 'search', class: 'text gm-filter', placeholder: placeholder || 'Filter…', 'aria-label': placeholder || 'Filter' });
+    inp.addEventListener('input', () => {
+      const q = inp.value.trim().toLowerCase();
+      let n = 0;
+      root.querySelectorAll('.gm-sec').forEach((card) => {
+        const hit = !q || card.textContent.toLowerCase().indexOf(q) !== -1;
+        card.style.display = hit ? '' : 'none';
+        if (hit) n += 1;
+      });
+      const none = root.querySelector('.gm-filter-none');
+      if (none) none.style.display = (q && n === 0) ? '' : 'none';
+    });
+    return el('div', { class: 'gm-filter-row' }, [inp, el('span', { class: 'gm-filter-none muted small', style: 'display:none' }, ['No matches'])]);
+  }
+
   // a stored list (gm[where]) as a pane body
   function listPane(container, ctx, where, o) {
     const draw = () => {
@@ -170,6 +188,7 @@ window.VttGmText = (function () {
       if (o && o.head) container.appendChild(o.head());
       const items = list(where);
       if (!items.length && o && o.empty) container.appendChild(el('div', { class: 'empty' }, [o.empty]));
+      if (o && o.searchable && items.length > 1) container.appendChild(filterBox(container, o.searchPlaceholder));
       sections(container, items, Object.assign({ redraw: draw, save: (l) => setList(where, l) }, o || {}));
       if (o && o.tail) container.appendChild(o.tail());
       reveal(container);
@@ -204,7 +223,7 @@ window.VttGmText = (function () {
     const walk = (pane, x) => { hit(pane, x.id, x.id, x.title || '', x.text || ''); (x.sections || []).forEach((y) => hit(pane, x.id, y.id, (x.title || '') + ' › ' + (y.title || ''), y.text || '')); };
     Object.keys(WHERE).forEach((w) => (gm()[w] || []).forEach((x) => walk(WHERE[w], x)));
     (S().threads || []).forEach((x) => { walk('threads', x); if (x.notes) hit('threads', x.id, x.id, (x.title || '') + ' › play notes', x.notes); });
-    (S().arc || []).forEach((x) => { hit('scenes', x.id, x.id, x.title || '', [x.summary, x.text].filter(Boolean).join('\n\n')); (x.sections || []).forEach((y) => hit('scenes', x.id, y.id, (x.title || '') + ' › ' + (y.title || ''), y.text || '')); });
+    (S().arc || []).forEach((x) => { hit('scenes', x.id, x.id, x.title || '', [x.summary, x.text].filter(Boolean).join('\n\n')); (x.beats || x.sections || []).forEach((y) => hit('scenes', x.id, y.id, (x.title || '') + ' › ' + (y.title || ''), y.text || '')); });
     if (gm().threadsNote) hit('threads', 'threads-note', 'threads-note', 'Threads', gm().threadsNote);
     ((gm().questions || {}).items || []).forEach((x) => hit('scenes', 'questions', x.id, 'Questions for the table', x.text));
     if (S().gmNotes) hit('overview', 'free-notes', 'free-notes', 'Free notes', S().gmNotes);
@@ -241,5 +260,5 @@ window.VttGmText = (function () {
     return box;
   }
 
-  return { render, html, inline, plain, list, setList, sections, sectionView, sectionEditor, note, editingId, listPane, aboutSections, search, goTo, reveal, open, editing, TAGS };
+  return { render, html, inline, plain, list, setList, sections, sectionView, sectionEditor, note, editingId, listPane, filterBox, aboutSections, search, goTo, reveal, open, editing, TAGS };
 })();

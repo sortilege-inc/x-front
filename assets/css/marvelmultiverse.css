@@ -232,3 +232,33 @@ button.die.pick:hover { transform: translate(-1px, -1px); }
   .die { width: 54px; height: 54px; font-size: 1.7rem; }
   h1 { font-size: 1.8rem; }
 }
+
+/* ── the character creator (system/marvelmultiverse/creator.js) ───── */
+.creator-budget { position: sticky; top: 3.6rem; z-index: 5; background: var(--paper); padding: .3rem 0; }
+.creator-budget .chip.over, .chip.over { background: var(--red); color: #fff; border-color: var(--red); }
+.problems { margin: .3rem 0; padding-left: 1.2rem; color: var(--red); font-size: .9rem; }
+.creator-step h2 { margin-top: .6rem; }
+.ability-grid { display: grid; gap: .4rem; max-width: 520px; }
+.ability-row { display: flex; align-items: center; gap: .5rem; }
+.ability-row .check-name { min-width: 7em; font-family: var(--display); text-transform: uppercase; letter-spacing: .04em; }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: .6rem; }
+.picker-hits { max-height: 320px; overflow: auto; margin-top: .3rem; }
+.pick-row { display: flex; align-items: baseline; flex-wrap: wrap; gap: .4rem; padding: .15rem 0; border-bottom: 1px dotted var(--rule); }
+.pick-row .ref { font: inherit; background: none; border: 0; padding: 0; cursor: pointer; color: var(--ink); border-bottom: 1px solid color-mix(in srgb, var(--red) 45%, transparent); }
+.granted { margin: .4rem 0; }
+.chosen { margin: .4rem 0; }
+.preview-box { margin-top: .8rem; }
+.book-text { margin-top: 1rem; }
+.book-text > summary { cursor: pointer; font-family: var(--display); text-transform: uppercase; letter-spacing: .04em; }
+.creator textarea.text, .creator input.text { width: 100%; }
+.page.creator .fields { max-width: 820px; }
+/* the sheet's additions */
+.power-set { margin: .2rem 0; }
+.after-check { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem; margin-top: .5rem; }
+.damage b { font-family: var(--display); font-size: 1.3rem; }
+.stat-v.small { font-size: .95rem; font-weight: 500; }
+@media (max-width: 640px) { .two-col { grid-template-columns: 1fr; } .creator-budget { top: 3rem; } }
+/* a picker with long option labels (an origin and its book) never widens the page */
+.creator .field { min-width: 0; max-width: 100%; }
+.creator select.scope { max-width: 100%; min-width: 0; }
+@media (max-width: 640px) { .creator .chiprow > .field { flex: 1 1 100%; } .creator select.scope { width: 100%; } }

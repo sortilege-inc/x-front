@@ -1,9 +1,11 @@
-// system/marvelmultiverse/panels.js — the Narrator's panels: Adventure, Heroes, Inspector, Cast,
-// Powers, Dice, Rules & Book, Log, Campaign. Registered into the engine's registry; the shell
-// (engine/app.js) decides where they show. Every word of rules text shown comes from the corpus;
-// a book's text is loaded when a panel first needs it. Ported from sortilege-vtt-vtm5e
-// (system/vtm5e/panels.js): its Chronicle, Coterie, Inspector, Cast, Dice, Rules & Book, Log and
-// Campaign; Powers stands where its Disciplines stood.
+// system/marvelmultiverse/panels.js — the Narrator's panels: Adventure (the running scene), Heroes,
+// Inspector, Cast, Powers, Dice, Rules & Book, Log, Campaign. Registered into the engine's registry;
+// the shell (engine/app.js) decides where they show. Every word of rules text shown comes from the
+// corpus; a book's text is loaded when a panel first needs it. Ported from sortilege-vtt-vtm5e
+// (system/vtm5e/panels.js): its Coterie, Inspector, Cast, Dice, Rules & Book, Log and Campaign;
+// Powers stands where its Disciplines stood. Since D5 the scenes are the Narrator's arc (the Scenes
+// outline, system/marvelmultiverse/gm-panes.js) and a scene's cast is tracked copies
+// (system/marvelmultiverse/table.js), as in sortilege-vtt-coyotecrow's workbench.
 (function () {
   const { el, button, debounce, dragSort } = window.VttRender;
   const D = window.MMData;
@@ -20,7 +22,6 @@
   window.MMOpenEntity = (id) => Panels.select({ kind: 'entity', id });
 
   const currentScene = () => Sys().scene(Sys().currentSceneId());
-  const progress = (sceneId) => ((S().progress || {})[MODULE] || {})[sceneId] || { done: false, notes: '' };
   function goTo(sceneId) {
     State.commit('setCurrentScene', [MODULE, sceneId]);
     window.VttBus.emit('scene:changed', { moduleId: MODULE, sceneId });
@@ -29,67 +30,49 @@
   const log = (entry) => State.commit('appendLog', [entry]);
   const loading = (what) => el('div', { class: 'muted small' }, ['Opening ' + what + '…']);
   const bookLabel = (b) => (D.indexBook(b) || {}).label || b;
-  const putIn = (sc, id) => { if ((sc.cast || []).indexOf(id) === -1) State.commit('setSceneCast', [sc.id, (sc.cast || []).concat([id])]); };
+  const tracker = (sceneId, c) => (window.MMGmPanes ? window.MMGmPanes.instTracker(sceneId, c) : null);
 
-  // ── Adventure: the Narrator's scenes ───────────────────────────────
+  // ── Adventure: the running scene, and who is in it ─────────────────
+  // The scenes are the Scenes outline's (the arc); this panel runs one: its cast as tracked copies,
+  // each with its Health and Focus, and a search that puts one more copy in.
   function renderAdventure(container, ctx) {
     const draw = () => {
       container.innerHTML = '';
-      const scenes = S().scenes || [];
+      const all = Sys().scenes();
       const cur = currentScene();
-      const done = scenes.filter((sc) => progress(sc.id).done).length;
-      const add = el('input', { type: 'text', class: 'text small', placeholder: 'A new scene…' });
-      const addIt = () => {
-        const name = add.value.trim();
-        if (!name) return;
-        const id = State.genId('sc');
-        State.commit('putScene', [{ id, name, cast: [] }]);
-        add.value = '';
-        if (!cur) goTo(id);
-      };
-      add.addEventListener('keydown', (ev) => { if (ev.key === 'Enter') { ev.preventDefault(); addIt(); } });
-      container.appendChild(el('h4', {}, [(S().campaign || {}).name || 'The adventure', el('span', { class: 'muted small' }, [scenes.length ? ' · ' + done + ' of ' + scenes.length + ' scenes done · drag to arrange' : ''])]));
-      container.appendChild(el('div', { class: 'chiprow tight' }, [add, button('Add', addIt, 'tiny')]));
-      if (!scenes.length) container.appendChild(el('div', { class: 'empty' }, ['No scenes yet. Write the first one above; put characters in it from the Cast.']));
-      const list = el('div', { class: 'scene-list' }, scenes.map((sc) => {
-        const st = progress(sc.id);
-        return el('div', { class: 'scene-row' + (cur && cur.id === sc.id ? ' current' : '') + (st.done ? ' done' : ''), 'data-id': sc.id, title: 'Drag to arrange' }, [
-          el('span', { class: 'grip', 'aria-hidden': 'true' }, ['⋮⋮']),
-          el('input', { type: 'checkbox', checked: st.done || null, title: 'Done', onchange: (ev) => State.commit('setSceneDone', [MODULE, sc.id, ev.target.checked]) }),
-          el('button', { class: 'scene-link', type: 'button', onclick: () => goTo(sc.id) }, [sc.name]),
-          (sc.cast || []).length ? el('span', { class: 'muted small' }, [sc.cast.length + ' in it']) : null,
-        ]);
-      }));
-      dragSort(list, { item: '.scene-row', onDrop: () => {
-        const ids = Array.from(list.querySelectorAll('.scene-row')).map((r) => r.dataset.id);
-        State.commit('setScenes', [ids.map((id) => scenes.find((sc) => sc.id === id)).filter(Boolean)]);
-      } });
-      container.appendChild(list);
-
-      if (cur) {
-        const st = progress(cur.id);
-        const name = el('input', { type: 'text', class: 'text', value: cur.name, onchange: (ev) => State.commit('putScene', [{ id: cur.id, name: ev.target.value.trim() || cur.name }]) });
-        const here = Sys().cast(cur.id);
-        container.appendChild(el('section', { class: 'scene' }, [
-          el('h4', {}, ['This scene']),
-          name,
-          el('div', { class: 'chiprow tight' }, [
-            button('Open on the table', () => window.open(window.VttConfig.pages.table + '?scene=' + encodeURIComponent(cur.id), (window.VttConfig.channel || 'vtt') + '-table'), 'tiny'),
-            el('label', { class: 'small' }, [el('input', { type: 'checkbox', checked: st.done || null, onchange: (ev) => State.commit('setSceneDone', [MODULE, cur.id, ev.target.checked]) }), ' done']),
-            button('remove', () => { if (confirm('Remove the scene "' + cur.name + '"?')) State.commit('removeScene', [cur.id]); }, 'ghost tiny'),
-          ]),
-          el('div', { class: 'prop-k' }, ['In it']),
-          here.length ? el('div', { class: 'chiprow tight' }, here.map((r) => el('span', { class: 'chip' }, [
-            el('button', { class: 'ref', type: 'button', onclick: () => Panels.select({ kind: 'entity', id: r.id }) }, [r.name]),
-            el('button', { class: 'ref tiny', type: 'button', title: 'take out', onclick: () => State.commit('setSceneCast', [cur.id, (cur.cast || []).filter((x) => x !== r.id)]) }, ['×']),
-          ]))) : el('div', { class: 'muted small' }, ['No one yet — the Cast can put someone here.']),
-          el('div', { class: 'prop-k' }, ['Narrator’s notes', el('span', { class: 'muted' }, [' · never sent to players'])]),
-          el('textarea', { class: 'text', rows: 6, placeholder: 'What happens here, who wants what, what the villain does next…', oninput: debounce((ev) => State.commit('setSceneNotes', [MODULE, cur.id, ev.target.value]), 400) }, [st.notes || '']),
-        ]));
+      if (!all.length) {
+        container.appendChild(el('div', { class: 'empty' }, ['No scenes yet. Write them in Scenes — a card each, with its beats and encounters — and run one here.']));
+        container.appendChild(button('Open Scenes', () => ctx.navigate('scenes'), 'tiny'));
+        return;
       }
+      const pick = el('select', { class: 'scope', 'aria-label': 'The running scene' }, all.map((sc) => el('option', { value: sc.id, selected: cur && cur.id === sc.id || null }, [(sc.phase ? sc.phase + ' · ' : '') + sc.name])));
+      pick.addEventListener('change', () => goTo(pick.value));
+      container.appendChild(el('div', { class: 'chiprow tight' }, [el('span', { class: 'prop-k' }, ['Running']), pick]));
+      if (!cur) return;
+      container.appendChild(el('h4', {}, [cur.name]));
+      if (cur.arc && cur.arc.summary) container.appendChild(el('p', { class: 'muted' }, [cur.arc.summary]));
+      container.appendChild(el('div', { class: 'chiprow tight' }, [
+        button('Open on the table', () => window.open(window.VttConfig.pages.table + '?scene=' + encodeURIComponent(cur.id), (window.VttConfig.channel || 'vtt') + '-table'), 'tiny'),
+        button('Its card in Scenes', () => ctx.navigate('scenes'), 'ghost tiny'),
+      ]));
+      const here = Sys().castEntries(cur.id);
+      container.appendChild(el('div', { class: 'prop-k' }, ['In it', el('span', { class: 'muted' }, [here.length ? ' · ' + here.length : ''])]));
+      if (!here.length) container.appendChild(el('div', { class: 'muted small' }, ['No one yet — put someone in below, from the Cast, or from an encounter in Scenes.']));
+      here.forEach((c) => { const t = tracker(cur.id, c); if (t) container.appendChild(t); });
+      const hits = el('div');
+      const find = el('input', { type: 'search', class: 'text', placeholder: '+ a character', 'aria-label': 'Put someone in this scene' });
+      find.addEventListener('input', debounce(() => {
+        const q = find.value.trim().toLowerCase();
+        hits.innerHTML = '';
+        if (q.length < 2) return;
+        D.profiles().filter((r) => r.name.toLowerCase().indexOf(q) !== -1).slice(0, 8)
+          .forEach((r) => hits.appendChild(button('+ ' + D.profileLabel(r), () => Sys().addToScene(cur.id, r.id, 1), 'ghost tiny')));
+      }, 150));
+      container.appendChild(find);
+      container.appendChild(hits);
     };
     ctx.on('state:changed', () => { if (!editing(container)) draw(); });
-    ctx.on('state:remote', draw);
+    ctx.on('state:remote', () => { if (!editing(container)) draw(); });
     ctx.on('scene:changed', draw);
     draw();
   }
@@ -110,6 +93,7 @@
     return el('span', {}, [button(label, () => file.click(), cls), file]);
   }
 
+  let makerOpen = false;
   function renderParty(container, ctx) {
     const draw = () => {
       container.innerHTML = '';
@@ -128,7 +112,18 @@
       };
       container.appendChild(el('div', { class: 'chiprow tight' }, [pick]));
       container.appendChild(el('div', { class: 'chiprow tight' }, [name, player, button('Add', add, 'tiny')]));
-      container.appendChild(el('div', { class: 'chiprow tight' }, [characterLoader('Load character file(s)…', 'ghost tiny')]));
+      container.appendChild(el('div', { class: 'chiprow tight' }, [characterLoader('Load character file(s)…', 'ghost tiny'), button(makerOpen ? 'Close the creator' : 'Make a hero…', () => { makerOpen = !makerOpen; draw(); }, 'ghost tiny')]));
+      // the site's creator, here: what it makes joins the heroes
+      if (makerOpen) {
+        const maker = el('div', { class: 'paper maker' });
+        container.appendChild(maker);
+        window.MMCreator.render(maker, null, null, { embedded: true, doneLabel: 'Take this hero to the table', onDone: (v) => {
+          const m = Sheet.fromValues(v, player.value);
+          makerOpen = false;
+          State.commit('addPartyMember', [m]);
+          Panels.select({ kind: 'party', id: m.id });
+        } });
+      }
       if (!party.length) container.appendChild(el('div', { class: 'empty' }, ['No heroes yet.']));
       party.forEach((m) => container.appendChild(el('div', { class: 'member' }, [
         el('button', { class: 'card static-card', type: 'button', onclick: () => Panels.select({ kind: 'party', id: m.id }) }, [
@@ -143,8 +138,8 @@
         ]),
       ])));
     };
-    ctx.on('state:changed', () => { if (!editing(container)) draw(); });
-    ctx.on('state:remote', draw);
+    ctx.on('state:changed', () => { if (!editing(container) && !makerOpen) draw(); });
+    ctx.on('state:remote', () => { if (!makerOpen) draw(); });
     draw();
   }
 
@@ -165,10 +160,15 @@
         }
         const cur = currentScene();
         container.appendChild(el('div', { class: 'chiprow tight' }, [
-          cur && D.isProfile(e) && (cur.cast || []).indexOf(e.id) === -1 ? button('Put in ' + cur.name, () => putIn(cur, e.id), 'tiny') : null,
+          cur && D.isProfile(e) ? button('Put ' + (Sys().castIds(cur.id).indexOf(e.id) === -1 ? '' : 'another ') + 'in ' + cur.name, () => Sys().addToScene(cur.id, e.id, 1), 'tiny') : null,
           el('a', { class: 'btn ghost tiny', href: './#book/' + encodeURIComponent(e.book) + '/' + encodeURIComponent(e.id), target: '_blank' }, ['In the reader']),
         ]));
         // the Narrator's notes on this one (the People pane's sections "about" it)
+        // a tracked copy (from a scene's cast, a token, an encounter): its own Health and Focus first
+        if (sel.iid && cur) {
+          const c = Sys().castEntries(cur.id).find((x) => x.iid === sel.iid);
+          if (c) container.appendChild(el('div', { class: 'paper copy-tracker' }, [el('div', { class: 'inst-name' }, [Sys().instLabel(c)]), tracker(cur.id, c)]));
+        }
         const about = window.VttGmText && window.VttGmText.aboutSections('people', e.id, draw);
         if (about) container.appendChild(about);
         container.appendChild(el('div', { class: 'paper' }, [E.render(e, { noKids: D.descendants(e.id) > 40 })]));
@@ -180,8 +180,8 @@
       } else container.appendChild(el('div', { class: 'empty' }, ['Nothing to show for ' + sel.kind + '.']));
     };
     ctx.on('select', draw);
-    ctx.on('state:changed', () => { const sel = Panels.selection(); if (sel && sel.kind === 'party' && !editing(container)) draw(); });
-    ctx.on('state:remote', () => { const sel = Panels.selection(); if (sel && sel.kind === 'party') draw(); });
+    ctx.on('state:changed', () => { const sel = Panels.selection(); if (sel && (sel.kind === 'party' || sel.iid) && !editing(container)) draw(); });
+    ctx.on('state:remote', () => { const sel = Panels.selection(); if (sel && (sel.kind === 'party' || sel.iid)) draw(); });
     draw();
   }
 
@@ -203,7 +203,7 @@
       const cur = currentScene();
       list.appendChild(el('div', { class: 'muted small' }, [hit.length + ' profiles' + (cur ? ' · + puts one in ' + cur.name : '')]));
       list.appendChild(el('ul', { class: 'items toc' }, hit.map((r) => el('li', {}, [
-        cur ? el('button', { class: 'ref tiny', type: 'button', title: 'Put in ' + cur.name, onclick: () => putIn(cur, r.id) }, ['+']) : null,
+        cur ? el('button', { class: 'ref tiny', type: 'button', title: 'Put in ' + cur.name, onclick: () => Sys().addToScene(cur.id, r.id, 1) }, ['+']) : null,
         el('button', { class: 'ref', type: 'button', onclick: () => Panels.select({ kind: 'entity', id: r.id }) }, [D.profileLabel(r)]),
         el('span', { class: 'muted small' }, [' · ' + [f(r, 'Rank') ? 'Rank ' + f(r, 'Rank') : null, bookLabel(r.book)].filter(Boolean).join(' · ')]),
       ]))));

@@ -18,6 +18,8 @@ echo "--- shape (the fields the site reads, against the corpus's own counts)"
 python3 build/check_shape.py "$CORPUS"
 echo "--- the d616 (the rules replay Core Mechanics' worked examples)"
 node build/check_dice.js
+echo "--- the creator (Young Lion as the book prints him; every profile's damages and checks)"
+node build/check_chargen.js
 echo "--- syntax"
 for f in data/*.js system/marvelmultiverse/*.js; do node --check "$f"; done
 echo "build.sh: OK"

@@ -22,15 +22,24 @@ body.gm { display: grid; grid-template-columns: 210px 1fr; min-height: 100vh; fo
 
 /* ── slots ── */
 .main { min-width: 0; background: var(--paper); color: var(--ink); }
-.main.wide { display: grid; grid-template-columns: 26% 1fr 36%; height: 100vh; }
-.slot { display: flex; flex-direction: column; min-width: 0; min-height: 0; height: 100%; border-right: 2px solid var(--line); }
-.slot:last-child { border-right: 0; }
+/* the regions of the layout the Narrator picks (engine/app.js LAYOUTS, Settings ▸ Layout): columns,
+   each holding one region or two stacked; a clicked region is the one a nav choice opens into */
+.main.wide { display: flex; height: 100vh; }
+.slot-col { display: flex; flex-direction: column; flex: 1 1 0; min-width: 0; min-height: 0; border-right: 2px solid var(--line); }
+.slot-col:last-child { border-right: 0; }
+.slot { display: flex; flex-direction: column; min-width: 0; min-height: 0; flex: 1 1 0; border-bottom: 2px solid var(--line); }
+.slot:last-child { border-bottom: 0; }
+.main.ly-3col .slot-col:nth-child(1), .main.ly-3col-s1 .slot-col:nth-child(1) { flex: 0 0 28%; }
+.main.ly-3col .slot-col:nth-child(3), .main.ly-3col-s1 .slot-col:nth-child(3) { flex: 0 0 36%; }
+.slot--focus { box-shadow: inset 0 0 0 3px var(--red); }
+.slot--focus > .slot-head { background: var(--red) !important; }
+.nav-sep { list-style: none; height: 0; margin: 7px 10px; border-top: 1px solid #4a4740; }
 .slot-head { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 6px 12px; font-family: var(--display); letter-spacing: .08em; text-transform: uppercase; font-size: 13px; color: #fff; background: var(--ink); }
 body.gm .slot-head { background: #16140f; }
 .slot-pick { font-size: 12px; background: transparent; border: 1px solid #5b574d; color: #e8e3d7; padding: 2px 4px; }
 .slot-pick option { color: #16140f; }
 .slot-body { padding: 12px 14px 36px; overflow: auto; flex: 1; min-height: 0; }
-.main.single .slot { height: auto; min-height: 100vh; }
+.main.single .slot { height: auto; min-height: 100vh; flex: none; }
 .main h4 { margin-top: 14px; }
 
 /* ── controls the panels add ── */
@@ -167,6 +176,7 @@ body.play { display: block; background: var(--paper-2); }
   .nav { display: flex; flex-wrap: wrap; margin: 0; }
   .navbtn { width: auto; border-left: 0; border-bottom: 3px solid transparent; }
   .navbtn.active { border-bottom-color: var(--red); }
+  .nav-sep { display: none; }
   .window-controls, .session-controls { margin: 0; flex-direction: row; }
   .sidebar-foot { margin-left: auto; }
 }
@@ -206,3 +216,56 @@ body.play { display: block; background: var(--paper-2); }
 .gm-veil-box { max-width: 460px; box-shadow: 6px 6px 0 var(--red); }
 .gm-veil-title { font-family: var(--display); font-weight: 700; font-size: 1.5rem; text-transform: uppercase; margin-bottom: 6px; }
 body.gated #sidebar, body.gated #main { visibility: hidden; }
+
+/* ── the workbench (PLAYBOOK §4c; engine/gm-panes.js Settings, system/marvelmultiverse/gm-panes.js) ── */
+.layout-picker { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+.layout-opt { display: flex; flex-direction: column; align-items: center; gap: 5px; width: 90px; padding: 7px 6px; background: var(--card); border: 2px solid var(--rule); border-radius: var(--radius); color: var(--ink-2); cursor: pointer; font: 600 .72rem var(--sans); }
+.layout-opt:hover, .layout-opt.on { border-color: var(--red); color: var(--ink); }
+.layout-ico { width: 46px; height: 32px; display: block; }
+.layout-ico rect { fill: var(--ink-2); opacity: .5; }
+.layout-opt:hover .layout-ico rect, .layout-opt.on .layout-ico rect { fill: var(--red); opacity: .9; }
+.layout-opt-label { text-align: center; line-height: 1.15; }
+.gm-filter-row { margin: 2px 0 10px; }
+.gm-filter { width: 100%; }
+.arc-session { display: block; width: 100%; text-align: left; background: none; border: 0; border-bottom: 2px solid var(--line); padding: 6px 0; margin-top: 8px; font: 700 .95rem var(--display); text-transform: uppercase; letter-spacing: .04em; color: var(--ink); cursor: pointer; }
+.arc-session.played { color: var(--ink-2); }
+.arc-card { border: 2px solid var(--line); border-left: 6px solid var(--rule); border-radius: var(--radius); background: var(--card); padding: 8px 10px; margin: 8px 0; }
+.arc-card.running { border-left-color: var(--red); box-shadow: 3px 3px 0 var(--red); }
+.arc-card.played { opacity: .72; }
+.arc-card.played .arc-title { text-decoration: line-through; color: var(--ink-2); }
+.arc-head { display: flex; align-items: center; gap: 6px; }
+.main input.arc-title { font: 700 1.05rem var(--display); text-transform: uppercase; border-color: transparent; background: transparent; flex: 1; }
+.arc-badges { display: inline-flex; gap: 4px; margin-left: auto; }
+.arc-actions { margin-top: 6px; }
+.arc-summary { margin: 4px 0; }
+.drag-handle { cursor: grab; color: var(--ink-2); padding: 0 3px; user-select: none; line-height: 1; font-size: 1rem; }
+.drag-handle:active { cursor: grabbing; }
+.drag-over { outline: 2px dashed var(--red); outline-offset: -2px; }
+.beats { margin: 6px 0 6px 6px; border-left: 2px solid var(--rule); padding-left: 8px; }
+.beat { border: 1px solid var(--rule); border-radius: var(--radius); background: var(--paper-2); padding: 5px 7px; margin: 5px 0; }
+.beat-head { display: flex; align-items: center; gap: 6px; }
+.main input.beat-title { flex: 1; border-color: transparent; background: transparent; }
+.beat-kind { font: 700 .66rem var(--display); letter-spacing: .08em; text-transform: uppercase; color: var(--ink-2); border: 1px solid var(--rule); border-radius: 3px; padding: 1px 5px; }
+.beat-kind.encounter { color: #fff; background: var(--red); border-color: var(--red); }
+.beat-drop { min-height: 10px; border-radius: 3px; margin: 2px 0; }
+.beat-drop.drag-over { min-height: 22px; }
+.enc-beat { margin-top: 6px; }
+.enc-row { align-items: baseline; }
+.enc-group { border-top: 1px dashed var(--rule); margin-top: 8px; padding-top: 6px; }
+.enc-detail { margin-top: 4px; }
+.inst-row { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; padding: 4px 0; border-bottom: 1px dotted var(--rule); }
+.inst-row.down { opacity: .5; }
+.main input.inst-label { flex: 1 1 8em; min-width: 6em; width: auto; }
+.inst-track { display: inline-flex; align-items: center; gap: 4px; }
+.inst-track .num-in { width: 4.2rem; text-align: center; font-family: var(--display); font-weight: 700; }
+.inst-name { font: 700 1rem var(--display); text-transform: uppercase; color: var(--red); margin-bottom: 4px; }
+.copy-tracker { border-left: 6px solid var(--red); }
+.note-field { margin: 6px 0; }
+.note-field .gm-text p { margin: 4px 0; }
+.note-area { width: 100%; font: 14px/1.45 var(--sans); }
+.gm-cast { margin: 6px 0; }
+/* a narrow region (a split first column) never scrolls sideways: its boxes shrink with it */
+.slot-body input.text, .slot-body input.search, .slot-body select.scope, .slot-body textarea { max-width: 100%; min-width: 0; }
+.arc-head, .beat-head { min-width: 0; }
+.main input.arc-title, .main input.beat-title { min-width: 0; width: 0; }
+.arc-card input.text:not(.arc-title), .enc-beat input.text { width: 100%; }

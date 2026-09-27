@@ -2,47 +2,48 @@
 // with the same call and shared the same way (engine/ops.js). Loaded by the browser after
 // engine/ops.js, and imported by the Worker beside it, so the room applies the very same
 // functions. Ids travel in the args; applying an op is deterministic everywhere, and the room
-// never rolls. Ported from sortilege-vtt-vtm5e (system/vtm5e/ops.js): its Narrator-written scenes
-// and the GM's own pack state; its loresheets, conflicts and relationship maps are that game's.
+// never rolls. The GM workbench's shape (PLAYBOOK §4c) is sortilege-vtt-coyotecrow's (itself
+// sortilege-vtt-daggerheart's), ported for D5.
 //
-//   scenes  [ { id, name, cast:[entityIds] } ]   the Narrator's own scenes, in play order — neither
-//                                                book ships an .arc (PLAN.md), so a scene is what
-//                                                the Narrator writes; done, notes and the current
-//                                                one use the engine's scene ops under moduleId
-//                                                'adventure'. The cast are character profiles.
-//   gm, gmNotes, arc, threads                    the Narrator's own pack state (engine/gm-panes.js,
-//                                                engine/gm-text.js), never shared
+//   cast      { [sceneId]: [instance] }   who the Narrator has put in a scene. An instance is
+//                                         { iid, id, label } — one tracked copy of a character
+//                                         profile, so three A.I.M. Agents are three trackers; a
+//                                         bare string is one copy whose iid is its id
+//   npcState  { [iid]: {health, focus} }  a copy's Health and Focus as they stand (each starts at
+//                                         the profile's printed number) — the Narrator's own
+//   gm, gmNotes, arc, threads             the Narrator's own pack state (PLAYBOOK §4b.2). The arc
+//                                         (the Scenes outline) is the campaign's scenes, which the
+//                                         table runs (system/marvelmultiverse/table.js)
 //   A hero's live state is the engine's setPartyLive: { health, focus, karma }
 //   (system/marvelmultiverse/sheet.js).
 (function (root, factory) {
   if (typeof module !== 'undefined' && module.exports) module.exports = factory(require('../../engine/ops.js'));
   else factory(root.VttOps);
 })(typeof self !== 'undefined' ? self : this, function (Ops) {
-  Ops.shared(['scenes']);
+  Ops.shared(['cast']);
 
-  Ops.register('setScenes', (s, list) => {
-    s.scenes = (list || []).slice();
-  });
-  Ops.register('putScene', (s, scene) => {
-    if (!s.scenes) s.scenes = [];
-    const i = s.scenes.findIndex((x) => x.id === scene.id);
-    if (i === -1) s.scenes.push(scene);
-    else s.scenes[i] = Object.assign({}, s.scenes[i], scene);
-  });
-  Ops.register('removeScene', (s, id) => {
-    s.scenes = (s.scenes || []).filter((x) => x.id !== id);
-  });
-  // who is in a scene: character profiles from the books (records.js ids)
-  Ops.register('setSceneCast', (s, sceneId, ids) => {
-    const sc = (s.scenes || []).find((x) => x.id === sceneId);
-    if (sc) sc.cast = (ids || []).slice();
+  Ops.register('setSceneCast', (s, sceneId, list) => {
+    if (!s.cast) s.cast = {};
+    s.cast[sceneId] = (list || []).slice();
   });
 
-  // The Narrator's own pack state (PLAYBOOK §4b.2): kept in this browser's pack and never sent to
-  // a session's room — no player may send them, none is in a player's view, none is forwarded.
+  // A hero's archived versions: a copy, appended, never edited. A player may archive their own.
+  Ops.register('archivePartyVersion', (s, id, version) => {
+    const m = (s.party || []).find((x) => x.id === id);
+    if (!m || !version || !version.id) return;
+    if (!m.versions) m.versions = [];
+    if (!m.versions.some((x) => x.id === version.id)) m.versions.push(version);
+  }, (s, me, a) => a[0] === me);
+
+  // The Narrator's own: a copy's state, and the pack state. No player may send them, none is in a
+  // player's view, and the pack state is never forwarded to the room (local ops).
   const gmOnly = () => null;
   const LOCAL = { local: true };
   const copy = (x) => JSON.parse(JSON.stringify(x == null ? null : x));
+  Ops.register('setNpcState', (s, iid, st) => {
+    if (!s.npcState) s.npcState = {};
+    s.npcState[iid] = Object.assign({}, st || {});
+  }, null, gmOnly);
   Ops.register('setGm', (s, where, value) => { if (!s.gm) s.gm = {}; s.gm[String(where)] = copy(value); }, null, gmOnly, LOCAL);
   Ops.register('setGmNotes', (s, text) => { s.gmNotes = String(text || ''); }, null, gmOnly, LOCAL);
   Ops.register('setArc', (s, list) => { s.arc = copy(list || []); }, null, gmOnly, LOCAL);

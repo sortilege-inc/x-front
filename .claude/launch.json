@@ -1,0 +1,18 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "vtt-marvelmultiverse",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "8746"],
+      "port": 8746
+    },
+    {
+      "name": "vtt-marvelmultiverse-worker",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["wrangler", "dev", "--port", "8802"],
+      "port": 8802,
+      "cwd": "worker"
+    }
+  ]
+}

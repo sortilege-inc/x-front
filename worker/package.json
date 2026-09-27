@@ -1,0 +1,12 @@
+{
+  "name": "sortilege-vtt-marvelmultiverse-worker",
+  "private": true,
+  "scripts": {
+    "dev": "wrangler dev --port 8802",
+    "deploy": "wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0",
+    "typescript": "^5.5.0"
+  }
+}

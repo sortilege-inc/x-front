@@ -146,6 +146,9 @@
     const troubles = el('input', { type: 'number', class: 'num-in', value: 0, min: 0, step: 1, 'aria-label': 'Troubles' });
     const field = (label, input) => el('label', { class: 'field' }, [el('span', { class: 'field-k' }, [label]), input]);
     const out = el('div', { class: 'roll-out' });
+    // what this roll is for ("Loki · Ego"), set by a sheet's check button; shown and logged
+    let label = o.label || null;
+    const forLine = el('div', { class: 'roll-for muted small' }, [label || '']);
     let cur = null;
 
     function die(i, face, pick) {
@@ -179,13 +182,14 @@
         ]));
       } else if (!cur.reported) {
         cur.reported = true;
-        if (o.onResolve) o.onResolve(r);
+        if (o.onResolve) o.onResolve(Object.assign(r, { label }));
       }
     }
     const go = () => {
       cur = start({ ability: ability.value, tn: tn.value, edges: Number(edges.value) || 0, troubles: Number(troubles.value) || 0 }, rollDie);
       draw();
     };
+    box.appendChild(forLine);
     box.appendChild(el('div', { class: 'roller-controls' }, [
       field('Ability score', ability),
       field('Target number', el('span', { class: 'tn-pick' }, [tn, rank, adj])),
@@ -194,16 +198,25 @@
       el('button', { class: 'btn primary', type: 'button', onclick: go }, ['Roll d616']),
     ]));
     box.appendChild(out);
+    // a sheet's check button: the ability score to add, and what the roll is for
+    box.preset = (p) => {
+      if (p.ability != null) ability.value = p.ability;
+      label = p.label || null;
+      forLine.textContent = label ? 'Rolling for ' + label : '';
+      cur = null;
+      draw();
+      ability.focus();
+    };
     return box;
   }
 
   function logEntry(r, who) {
-    return { who, at: Date.now(), listed: r.listed, total: r.total, tn: r.tn, outcome: r.outcome, fantastic: r.fantastic };
+    return { who, at: Date.now(), label: r.label || null, listed: r.listed, total: r.total, tn: r.tn, outcome: r.outcome, fantastic: r.fantastic };
   }
   function logLine(x) {
     const { el } = window.VttRender;
     return el('div', { class: 'log-line' + (x.fantastic ? ' fantastic' : '') }, [
-      el('b', {}, [x.who || '']), ' ', x.listed, ' → ', el('b', {}, [String(x.total)]), x.tn != null ? ' vs ' + x.tn : '', x.outcome ? ' · ' + x.outcome : '',
+      el('b', {}, [x.label || x.who || '']), ' ', x.listed, ' → ', el('b', {}, [String(x.total)]), x.tn != null ? ' vs ' + x.tn : '', x.outcome ? ' · ' + x.outcome : '',
     ]);
   }
 

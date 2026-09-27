@@ -284,6 +284,23 @@ window.MMData = (function () {
   const profiles = () => recordsOf((r) => PROFILE_TYPES.indexOf(r.type) !== -1 && r.kind === 'actor' && !r.versionOf);
   const isProfile = (e) => !!e && PROFILE_TYPES.indexOf(e.type) !== -1;
   const versionsOf = (id) => recordsOf((r) => r.versionOf === id);
+  // the printed page a record's file begins on (the index's chapters), and a profile's name with
+  // that page where two profiles print one name (the core's sample Spider-Man, p. 22, and p. 237)
+  function pageOf(r) {
+    const b = indexBook(r && r.book);
+    const c = b && (b.chapters || []).find((x) => x.file === r.file || x.file.split('/').pop() === r.file);
+    return c ? c.page : null;
+  }
+  let dupNames = null;
+  function profileLabel(r) {
+    if (!dupNames) {
+      const n = {};
+      profiles().forEach((x) => (n[x.name] = (n[x.name] || 0) + 1));
+      dupNames = n;
+    }
+    const p = dupNames[r.name] > 1 ? pageOf(r) : null;
+    return r.name + (p != null ? ' (p. ' + p + ')' : '');
+  }
   const typed = (t) => recordsOf((r) => r.type === t);
 
   // ── search ─────────────────────────────────────────────────────────
@@ -335,7 +352,7 @@ window.MMData = (function () {
     children, ancestors, top, all, byType, descendants, declaration, declared, named, recordNamed,
     guidanceFor, guidanceLoose, correctionsFor, modified, reindex,
     chapterTitle, shortTitle, chapters, chapter,
-    PROFILE_TYPES, profiles, isProfile, versionsOf, typed,
+    PROFILE_TYPES, profiles, isProfile, versionsOf, typed, pageOf, profileLabel,
     search, excerpt, label,
   };
 })();

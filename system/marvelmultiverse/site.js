@@ -228,7 +228,7 @@ window.VttSiteTabs = (function () {
       draw: (hit) => el('div', { class: 'table-wrap' }, [el('table', { class: 'printed list' }, [
         el('thead', {}, [el('tr', {}, ['Character', 'Rank', 'Real name', 'Origin', 'Teams', 'Book'].map((h) => el('th', {}, [h])))]),
         el('tbody', {}, hit.slice().sort((a, b) => a.name.localeCompare(b.name)).map((r) => el('tr', {}, [
-          el('td', {}, [el('a', { class: 'ref', href: ctx.href('characters', [r.id]) }, [r.name])]),
+          el('td', {}, [el('a', { class: 'ref', href: ctx.href('characters', [r.id]) }, [D.profileLabel(r)])]),
           el('td', {}, [f(r, 'Rank') || '']), el('td', {}, [f(r, 'Real Name') || '']), el('td', { class: 'small' }, [f(r, 'Origin') || '']),
           el('td', { class: 'small' }, [f(r, 'Teams') || '']), el('td', { class: 'muted small' }, [D.label(r.book)]),
         ]))),

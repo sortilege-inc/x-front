@@ -77,7 +77,7 @@ PAGE_RE = re.compile(r"(?:\(|source:\s+)(?:pages?|pp\.)\s+(\d+)")
 # instance's layer — the sheet gathers them; the pregen list leaves them out)
 REF_RECORD_FIELDS = {"Version Of": "versionOf"}
 RECORD_FIELDS = ["Type", "Rank", "Real Name", "Occupation", "Origin", "Teams", "Size", "Action",
-                 "Duration", "Cost", "Printed Power Set", "Set", "Ability"]
+                 "Duration", "Cost", "Printed Power Set", "Set", "Ability", "Health", "Focus", "Karma"]
 
 
 # ───────────────────────── AST helpers ─────────────────────────
@@ -604,7 +604,9 @@ def records_of(entities):
         is_codex = e["form"] == "ENTITY"
         if not (e.get("type") or rank or is_codex or e.get("applies")):
             continue
-        r = {"id": h, "name": e["name"], "book": e["book"], "kind": os.path.splitext(e["file"])[1][1:]}
+        # the file tells two printings of one name apart (the core's sample Spider-Man, p. 22, and its
+        # profile, p. 237): the index gives each file's page
+        r = {"id": h, "name": e["name"], "book": e["book"], "file": e["file"], "kind": os.path.splitext(e["file"])[1][1:]}
         if e.get("type"):
             r["type"] = e["type"]
         if e.get("applies"):

@@ -89,6 +89,8 @@ window.VttSystem = (function () {
     return groups;
   }
 
+  // the players' side: the table's player view (engine/vtt.js marks it body.player) or the player's page
+  const playerSide = () => typeof document !== 'undefined' && (document.body.classList.contains('player') || document.body.classList.contains('play'));
   const COLORS = { party: '#c8102e', cast: '#1d4f9a', marker: '#5b574d' };
   const tokenColor = (t) => COLORS[t.kind] || COLORS.marker;
   // a token's words: a hero's Health and Focus as they stand; a copy's, the Narrator's view of it
@@ -100,6 +102,9 @@ window.VttSystem = (function () {
     }
     const r = t.kind === 'cast' && t.ref ? D.record(t.ref) : null;
     if (!r) return null;
+    // a copy's Health and Focus are the Narrator's own (npcState is never in a player's view): the
+    // players' table shows its printed Rank, never a number that would read as its Health
+    if (playerSide()) return { text: (r.fields || {}).Rank ? 'Rank ' + r.fields.Rank : '', pips: [] };
     const cs = copyState(t.iid || t.ref, t.ref);
     const txt = COPY_TRACKS.map((k) => (cs[k].cur != null ? cs[k].label + ' ' + cs[k].cur : null)).filter(Boolean).join(' · ');
     return { text: txt || ((r.fields || {}).Rank ? 'Rank ' + r.fields.Rank : ''), pips: [] };

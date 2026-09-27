@@ -21,4 +21,5 @@ corpus prints reaches the data as often as it is printed, and nothing in the dat
 corpus), then checks the shapes the site reads against counts taken from the raw corpus.
 
 Local: the launch entries `vtt-marvelmultiverse` (8746) and `vtt-marvelmultiverse-worker`
-(8802). See `PLAN.md` for the milestones, the decisions and the proof of each.
+(8802; `cd worker && npm ci` first). With the Worker running, `tools/check-session.js` proves a
+session end to end (two origins, one room; see its header). See `PLAN.md` for the milestones, the decisions and the proof of each.

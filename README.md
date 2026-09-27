@@ -6,7 +6,7 @@ the d616 dice, the character profiles, powers, origins and occupations, and live
 players on their own devices.
 
 - `/` — the site: the books, the profiles, the powers, the dice, making a character, search.
-  Writes nothing. *(M2)*
+  Writes nothing.
 - `/gm/` — the Narrator's table: panels over the campaign, the map table (`gm/vtt.html`), the
   player's page (`gm/play.html`). *(M3)*
 

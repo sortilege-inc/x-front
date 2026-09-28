@@ -1,0 +1,327 @@
+Flare
+4
+2 13 +2
+6 17 +6
+4 14 +4
+2 12 +2
+6 16 +6
+3 16 +3
+4 2
+5 6
+4 6
+4 3
+_/4
+___/120 -
+__/60 -
++2
+5
+3
+3
+Flight: 20
+Famous: The character is widely
+known—at least among a certain
+group of people or a population.
+They may be well-liked or they may
+be hated, but either way, they are
+famous. They have an edge when
+making an Ego check to persuade
+someone who thinks favorably of
+them. They have trouble when
+making an Ego check to persuade
+someone who dislikes them.
+Gullible: The character is easy to
+fool. People lying to them have an
+edge on their Ego checks to
+persuade the character of
+something.
+Honest: The character is a terrible
+liar. They have trouble any time
+they make an Ego check that
+involves telling a lie. However, they
+have an edge on any friendly Ego
+(persuasion) checks in which
+they’re truthful.
+Hounded: The
+character is a
+member of a group of
+people who are
+persecuted for simply
+being themselves.
+X-Gene: The
+character has mutant
+genes that cause
+them to develop
+super-powers.
+Young: The character
+is a minor, under 18
+years old. If possible,
+they must report in to
+their parents or
+guardians on a
+regular basis.
+Wisdom (Permanent): The character can
+use their Ego defense score against Logic
+attacks too.
+Flight (Permanent): The character can fly.
+Their combat Flight Speed is equal to
+their rank times their Run Speed. Outside
+of combat, they can move three times
+their Flight Speed.
+Elemental Control (Electricity/Energy)
+===============
+Elemental Burst (Standard, Instant,
+Range: 10 spaces): The character makes
+a ranged attack against an enemy in line
+of sight. If the attack is a success, it
+inflicts regular damage. On a Fantastic
+success, the enemy takes double damage
+instead and is stunned for one round.
+Elemental Blast (Standard, Instant,
+Range: 10 spaces, Cost: 5+ Focus): The
+character makes a ranged attack with an
+edge at an enemy in line of sight. For this
+attack, add +1 to the character’s Agility
+damage bonus for every 2 points of Focus
+they spend. On a success, an affected
+target takes that total damage. On a
+Fantastic success, an affected target
+takes double that total damage and is
+stunned for one round.
+Elemental Barrage (Standard,
+Instant, Cost: 15 Focus, only
+Electricity): The character
+designates a space within their line
+of sight. The attack can affect
+every enemy within 10 spaces of
+that. The character makes a single
+Ego check and compares it to
+each target’s Resilience defense.
+Affected enemies take half regular
+damage. On a Fantastic success,
+they take full regular damage and
+are stunned for one round.
+Elemental Push (Standard, Instant,
+Cost: 10 Focus): The character
+makes an Ego attack against the
+target’s Agility defense. If the
+attack succeeds, the character can
+move the target in any direction,
+up to 1 space times the character’s
+rank. On a Fantastic success, the
+target also takes regular damage,
+is knocked prone and is stunned
+for one round.
+Traits continued
+============
+Inventor: The character is good
+at coming up with solutions on
+the fly. They have an edge on
+Logic checks when creating or
+repairing things.
+Quick Learner: If the character
+fails an action check, they gain
+an edge on the check if they try
+the same action again on their
+next turn.
+Signature Attack (Supernova):
+The character is known for
+favoring a particular kind of
+weapon or attack power. They
+have an edge when making
+attacks that way.
+Small: The character’s size is
+small, which adds +1 to their
+Melee and Agility defenses and
+takes –1 from their Run Speed.
+Taylor Crenshaw
+5'6" 132 lbs Female
+Brown Black Medium
+Glowing streaks going up neck and spine
+Student
+Mutant
+None
+The recent law passed in Florida about state-
+sanctioned kidnapping of mutant minors was
+controversial but seemingly theoretical. When
+a high-school basketball game was interrupted
+by one of the cheering students seemingly
+erupting in light & knocking out the power for
+three blocks, an investigation occurred, and
+state officials came to the home of Taylor
+Crenshaw and her parents begrudgingly
+handed her over despite protests. It garnered
+national media coverage.
+Current Age: 15
+Energetic, impatient, tactless. Very ADHD, very
+inexperienced.
+Goal: Taylor sees her power as something to
+be celebrated, not hidden, and wants to do
+good with it.
+Barrier: Taylor knows that being able to remain
+with her family and friends means pretending
+that she isn’t a mutant.
+POWERS
+DAMAGE
+BIOGRAPHY
+RANK
+KARMA
+HEALTH
+FOCUS
+DAMAGE
+REDUCTION
+DAMAGE
+REDUCTION
+INITIATIVE
+MODIFIER
+TRAITS & TAGS
+Traits Tags
+ABILITIES
+ABILITY
+SCORE
+DEFENSE
+SCORE
+NON-COMBAT
+CHECKS
+MELEE
+AGILITY
+RESILIENCE
+VIGILANCE
+EGO
+LOGIC
+dMarvel
+dMarvel
+dMarvel
+dMarvel MULTIPLIER
+MULTIPLIER
+MULTIPLIER
+MULTIPLIER
+SPEED
+Run:
+Climb:
+Swim:
+Real Name:
+Height:
+Eyes:
+Weight: Gender:
+Hair: Size:
+Distinguishing Features:
+Occupation:
+Origin:
+Teams:
+Base:
+HISTORY
+PERSONALITY
+ABILITY
+ABILITY
+ABILITY
+ABILITY
+MELEE AGILITY EGO LOGIC
+Art :NAME
+Elemental Control
+==============
+Energy Absorption (Reaction,
+Instant, Cost: 15 Focus): [Trigger:
+The character takes Health
+damage.] The character can take
+any Health damage done to them
+(after applying any damage
+reduction), ignore it and add that
+number to their Focus instead. In
+this way, they can increase their
+Focus up to double their regular
+maximum Focus. Once the
+combat is over, any extra Focus
+over the character’s regular
+maximum Focus score fades
+away.
+This power cannot be used again
+until any Focus the character
+gained in this way is spent.
+Elemental Ricochet (Electricity
+only, Standard, Instant, Range:
+40 spaces, Cost: 10 Focus):
+The character makes a ranged
+attack against a target in line of
+sight. If the attack is a success,
+it inflicts regular damage. On a
+Fantastic success, energy also
+bounces off the first target to
+another in line of sight, and the
+character can make a new
+attack against that target,
+adding the new range to the
+previous attack’s range. This
+can be repeated until an attack
+is not fantastic.
+Supernova (Standard, Instant,
+Cost: 15+ Focus): The character
+makes an Ego check and
+compares that against the
+Resilience defense of every
+enemy within 10 spaces. For
+these attacks, add +1 to the
+character’s Ego damage bonus
+for every 2 points of Focus they
+spend. On a success, an
+affected target takes half that
+total damage. On a Fantastic
+success, an affected target
+takes full damage and is
+stunned for one round.
+POWERS
+DAMAGE
+BIOGRAPHY
+RANK
+KARMA
+HEALTH
+FOCUS
+DAMAGE
+REDUCTION
+DAMAGE
+REDUCTION
+INITIATIVE
+MODIFIER
+TRAITS & TAGS
+Traits Tags
+ABILITIES
+ABILITY
+SCORE
+DEFENSE
+SCORE
+NON-COMBAT
+CHECKS
+MELEE
+AGILITY
+RESILIENCE
+VIGILANCE
+EGO
+LOGIC
+dMarvel
+dMarvel
+dMarvel
+dMarvel MULTIPLIER
+MULTIPLIER
+MULTIPLIER
+MULTIPLIER
+SPEED
+Run:
+Climb:
+Swim:
+Real Name:
+Height:
+Eyes:
+Weight: Gender:
+Hair: Size:
+Distinguishing Features:
+Occupation:
+Origin:
+Teams:
+Base:
+HISTORY
+PERSONALITY
+ABILITY
+ABILITY
+ABILITY
+ABILITY
+MELEE AGILITY EGO LOGIC
+Art Author Art :

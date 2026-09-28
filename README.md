@@ -1,25 +1,23 @@
-# sortilege-vtt-marvelmultiverse
+# X-FRONT
 
-A virtual tabletop for the **Marvel Multiverse Role-Playing Game**, generated from the Titterpig
-corpus `titterpig-dsl-marvelmultiverse/0.5`: the Core Rulebook and the X-Men Expansion to read,
-the d616 dice, the character profiles, powers, origins and occupations, and live sessions for
-players on their own devices.
+A **Marvel Multiverse** campaign: young mutants who have stopped waiting for protest and petition to
+work. Toya Terrence (Tank) and Tabitha Fanning (Taboo) formed X-FRONT after a pride march in
+Tallahassee went south; Stasis, Regret and Half-Life have joined them, and in Florida the state has
+taken Taylor Crenshaw (Flare).
 
-- `/` — the site: the books, the profiles, the powers, the dice, making a character, search.
-  Writes nothing.
-- `/gm/` — the Narrator's table: panels over the campaign, the map table (`gm/vtt.html`), the
-  player's page (`gm/play.html`). *(M3)*
-
-No build step for the pages; `data/` is generated:
+This repo is an **instance** of [`sortilege-vtt-marvelmultiverse`](https://github.com/sortilege-inc/sortilege-vtt-marvelmultiverse):
+the VTT owns the root (the site at `/`, the Narrator's table at `/gm/`, the player's page, the engine,
+the generated book data); the campaign owns `campaign/` and a few per-deployment root files
+(`.gitattributes`, `merge=ours`).
 
 ```bash
-bash build/build.sh
+git config merge.ours.driver true        # once per clone — the fork boundary needs it
+git fetch upstream && git merge upstream/main   # pull the VTT; a merge, never a rebase
+bash campaign/build/build.sh             # the heroes, the public pages, the Narrator's seed
 ```
 
-It parses every corpus file, writes `data/`, and gates the result both ways (every string the
-corpus prints reaches the data as often as it is printed, and nothing in the data is not in the
-corpus), then checks the shapes the site reads against counts taken from the raw corpus.
-
-Local: the launch entries `vtt-marvelmultiverse` (8746) and `vtt-marvelmultiverse-worker`
-(8802; `cd worker && npm ci` first). With the Worker running, `tools/check-session.js` proves a
-session end to end (two origins, one room; see its header). See `PLAN.md` for the milestones, the decisions and the proof of each.
+The heroes are the owner's six short-form sheets (`campaign/source/sheets/`), read by poppler's text
+layer into `campaign/source/sheets.json`, written into the campaign's DSL layer (`campaign/dsl/`),
+built through the books' gate into `campaign/data/`, and checked field by field against the sheets.
+Local: the launch entries `x-front` (8757) and `x-front-worker` (8807). The plan, the decisions and
+the proof of each step are in `campaign/PLAN.md`.

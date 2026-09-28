@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "sortilege-vtt-marvelmultiverse",
+  "name": "x-front",
   "main": "src/index.ts",
   "compatibility_date": "2026-09-08",
   "observability": { "enabled": true, "head_sampling_rate": 1 },

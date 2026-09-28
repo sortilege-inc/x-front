@@ -1,0 +1,214 @@
+Taboo
+2
+1 11 +1
+2 12 +2
+2 12 +2
+1 11 +1
+3 13 +3
+1 11 +1
+2 1
+2 2
+2 3
+2 1
+_/2
+__/60 -
+__/60 -1
++1
+5
+3
+3
+Jump: 3
+Battle Ready: The character is
+always mentally prepared for any
+sort of trouble to start. Add +30
+Focus.
+Connections (Mutants): By making
+an Ego check, the character can
+call on their contact to provide help
+in the form of clues, information or
+resources. The Narrator determines
+the TN of the Ego check based on
+the favor requested.
+Fearless: The character is
+extremely brave. They have an
+edge on any action checks required
+to deal with fear.
+Public Speaking: The character
+knows how to get the attention of a
+crowd, whether that’s at a political
+rally or in front of a jury or a
+classroom. They have an edge on
+Ego checks when attempting to
+persuade groups.
+Black Market Access:
+The character knows how
+and where they can buy
+and sell hard-to-find and
+potentially illegal things.
+Hounded: The character
+is a member of a group of
+people who are
+persecuted for simply
+being themselves.
+X-Gene: The character
+has mutant genes that
+cause them to develop
+super-powers.
+Young: The character is
+a minor, under 18 years
+old. If possible, they must
+report in to their parents
+or guardians on a regular
+basis.
+Combat Trickery (Reaction,
+Instant, Cost: 5 Focus): Once per
+battle, when the character is
+attacking targets of equal or
+higher rank, the character
+automatically rolls a 1 on their
+Marvel die, and that die cannot be
+affected by trouble. If the
+character is attacking multiple
+targets, all the targets must be of
+equal or higher rank.
+Inspiration (Standard, 1 Round):
+The character inspires an ally in
+earshot. The ally gains an edge
+on all action checks until the start
+of the character’s next turn.
+Uncanny (Permanent): Any
+damage multiplier for attacks
+against the character’s Focus is
+reduced by 1.
+Luck
+====
+Jinx You (Standard,
+Concentration, Cost: 5 Focus
+per turn, Range: Reach):The
+character makes a Melee check
+to touch the target. On a
+success, the power takes effect,
+and that foe has trouble on all
+action checks made for the
+power’s duration. On a Fantastic
+success, the target also takes
+standard (not doubled) Melee
+damage.
+Evil Eye (Standard,
+Concentration, Cost: 5 Focus
+per turn, Range: 10 spaces):
+The character picks a foe in
+their line of sight. That foe has
+trouble on all action checks
+made for the power’s duration.
+There is no limit on the range
+between the character and the
+foe once the power is activated.
+Luck
+====
+Lucky Me (Standard, Concentration,
+Cost: 5 Focus per turn): The
+character gains an edge on all
+action checks made while this power
+is in effect. The character must pay
+the Focus cost at the start of each of
+their subsequent turns of
+concentration to keep the power
+working.
+Lucky You (Standard,
+Concentration, Cost: 5 Focus per
+turn, Range: Reach): The character
+touches an ally. That ally gains an
+edge on all action checks made
+while this power is in effect.
+Wish You Luck (Standard,
+Concentration, Cost: 5 Focus per
+turn, Range: 10 spaces): The
+character picks an ally in line of
+sight. That ally gains an edge on all
+action checks made while this power
+is in effect. There is no limit on the
+range between the character and
+the ally once the power is activated.
+Tabitha Fanning
+5'4" 122 lbs Female
+Green Red Medium
+Adventurer
+Mutant
+X-FRONT
+They briefly attended Xavier’s academy and
+felt that it was cowardly at best. After repeated
+arguments and conflicts with the teachers, they
+dropped out.
+Met Toya at a mutant pride march that went
+south, and formed the seeds of X-FRONT
+together.
+Current age: 17
+Full of spirit and self-sure.
+Goal: Tabitha doesn’t see a future for herself
+worth having, except if it’s a means to the end
+of other mutants also having a future. She’s
+going to fight hard and go down fighting.
+Barrier: Tabitha has broken off from those she
+felt limited her, but that also deprives her of
+institutional and social support. The future she
+wants to build, she can’t build alone, but she
+almost compulsively burns every bridge she
+crosses.
+POWERS
+DAMAGE
+BIOGRAPHY
+RANK
+KARMA
+HEALTH
+FOCUS
+DAMAGE
+REDUCTION
+DAMAGE
+REDUCTION
+INITIATIVE
+MODIFIER
+TRAITS & TAGS
+Traits Tags
+ABILITIES
+ABILITY
+SCORE
+DEFENSE
+SCORE
+NON-COMBAT
+CHECKS
+MELEE
+AGILITY
+RESILIENCE
+VIGILANCE
+EGO
+LOGIC
+dMarvel
+dMarvel
+dMarvel
+dMarvel MULTIPLIER
+MULTIPLIER
+MULTIPLIER
+MULTIPLIER
+SPEED
+Run:
+Climb:
+Swim:
+Real Name:
+Height:
+Eyes:
+Weight: Gender:
+Hair: Size:
+Distinguishing Features:
+Occupation:
+Origin:
+Teams:
+Base:
+HISTORY
+PERSONALITY
+ABILITY
+ABILITY
+ABILITY
+ABILITY
+MELEE AGILITY EGO LOGIC
+Art :

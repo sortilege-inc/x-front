@@ -1,0 +1,48 @@
+/* campaign/site/campaign.css — X-FRONT's look: the VTT's comic-page tokens re-pointed at a protest
+   poster — signal orange, hazard yellow, night navy (loaded after the system's stylesheet by
+   engine/instance.js) — and the campaign's own pages (campaign/site/site.js). Upstream files are
+   never edited. */
+:root {
+  --red: #d9480f;       /* the accent: signal orange */
+  --red-bg: #fde8dc;
+  --blue: #1b2a4a;      /* the second accent: night navy */
+  --gold: #f5c400;      /* hazard yellow */
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --red: #ff8a4c;
+    --red-bg: #3a2014;
+    --blue: #8fa9dd;
+    --gold: #f5c400;
+  }
+}
+:root[data-theme="dark"] {
+  --red: #ff8a4c;
+  --red-bg: #3a2014;
+  --blue: #8fa9dd;
+  --gold: #f5c400;
+}
+
+.xf-page { max-width: 52rem; margin: 0 auto; padding: 0 16px 3rem; }
+.xf-hero { margin: 2rem 0 1.2rem; padding: 1rem 1.2rem; background: var(--gold); color: #16140f; border: 2px solid var(--ink); box-shadow: var(--shadow); }
+.xf-title { font-family: var(--display); font-size: clamp(2.4rem, 8vw, 4rem); letter-spacing: .04em; margin: 0; line-height: 1; }
+.xf-sub { font-family: var(--sans); font-weight: 600; margin: .4rem 0 0; }
+.xf-prose { font-family: var(--sans); font-size: 1.06rem; line-height: 1.6; }
+.xf-prose p { margin: 0 0 .8rem; }
+.xf-h { font-family: var(--display); text-transform: uppercase; letter-spacing: .05em; color: var(--red); margin: 1.8rem 0 .6rem; }
+.xf-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(10.5rem, 1fr)); gap: .9rem; margin: .8rem 0; }
+.xf-card { display: block; background: var(--card); border: 2px solid var(--ink); box-shadow: var(--shadow); text-decoration: none; color: inherit; }
+.xf-card:hover { border-color: var(--red); }
+.xf-card-img { display: block; width: 100%; aspect-ratio: 1; object-fit: cover; border-bottom: 2px solid var(--ink); }
+.xf-card-t { font-family: var(--display); font-size: 1.25rem; letter-spacing: .03em; padding: .5rem .7rem 0; }
+.xf-card-s { padding: 0 .7rem .6rem; }
+.xf-head { display: grid; grid-template-columns: minmax(0, 15rem) minmax(0, 1fr); gap: 1.2rem; align-items: start; margin: .6rem 0 1rem; }
+.xf-portrait { width: 100%; aspect-ratio: 1; object-fit: cover; border: 2px solid var(--ink); box-shadow: var(--shadow); }
+.xf-name { margin-top: 0; }
+.xf-facts { border-collapse: collapse; font-family: var(--sans); }
+.xf-facts th { text-align: left; color: var(--blue); font-weight: 600; padding: .15rem 1rem .15rem 0; vertical-align: top; white-space: nowrap; }
+.xf-facts td { padding: .15rem 0; }
+@media (max-width: 600px) {
+  .xf-head { grid-template-columns: minmax(0, 1fr); }
+  .xf-portrait { max-width: 18rem; }
+}

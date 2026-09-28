@@ -7,3 +7,5 @@ build/__pycache__/
 campaigns/
 node_modules/
 .wrangler/
+# the instance's own skills are part of the campaign
+!.claude/skills/

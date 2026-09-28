@@ -1,0 +1,65 @@
+# source: campaign/source/sheets/Half-Life.pdf — the owner's short-form sheet (2025), by convert_heroes.py
+#xfFueyJXe7eZxOV7vxflxs ^"Half-Life" DEF {
+    EXTENDS #mmrpgCharacter0000000 ^"Character"
+    PROPERTIES {
+        ^"Name" STRING "Half-Life"
+        ^"Rank" STRING "2"
+        ^"Karma" STRING "2"
+        ^"Health" STRING "60"
+        ^"Health Damage Reduction" STRING "-"
+        ^"Focus" STRING "30"
+        ^"Focus Damage Reduction" STRING "-"
+        ^"Initiative Modifier" STRING "+1"
+        ^"Speeds" LIST OF #mmrpgSpeed00000000000 ^"Speed" [
+            DEF { ^"Mode" STRING "Run"  ^"Speed" STRING "5" },
+            DEF { ^"Mode" STRING "Climb"  ^"Speed" STRING "3" },
+            DEF { ^"Mode" STRING "Swim"  ^"Speed" STRING "3" },
+            DEF { ^"Mode" STRING "Jump"  ^"Speed" STRING "3" }
+        ]
+        ^"Abilities" LIST OF #mmrpgAbilityLine00000 ^"Ability Line" [
+            DEF { ^"Ability" STRING "Melee"  ^"Ability Score" STRING "5"  ^"Defense Score" STRING "15"  ^"Non-Combat Checks" STRING "+6" },
+            DEF { ^"Ability" STRING "Agility"  ^"Ability Score" STRING "1"  ^"Defense Score" STRING "15"  ^"Non-Combat Checks" STRING "+2" },
+            DEF { ^"Ability" STRING "Resilience"  ^"Ability Score" STRING "2"  ^"Defense Score" STRING "12"  ^"Non-Combat Checks" STRING "+2" },
+            DEF { ^"Ability" STRING "Vigilance"  ^"Ability Score" STRING "1"  ^"Defense Score" STRING "11"  ^"Non-Combat Checks" STRING "+1" },
+            DEF { ^"Ability" STRING "Ego"  ^"Ability Score" STRING "1"  ^"Defense Score" STRING "11"  ^"Non-Combat Checks" STRING "+1" },
+            DEF { ^"Ability" STRING "Logic"  ^"Ability Score" STRING "0"  ^"Defense Score" STRING "10"  ^"Non-Combat Checks" STRING "+0" }
+        ]
+        ^"Damage" LIST OF #mmrpgDamageLine000000 ^"Damage Line" [
+            DEF { ^"Ability" STRING "Melee"  ^"Multiplier" STRING "3"  ^"Ability Score" STRING "5" },
+            DEF { ^"Ability" STRING "Agility"  ^"Multiplier" STRING "3"  ^"Ability Score" STRING "1" },
+            DEF { ^"Ability" STRING "Ego"  ^"Multiplier" STRING "2"  ^"Ability Score" STRING "1" },
+            DEF { ^"Ability" STRING "Logic"  ^"Multiplier" STRING "2"  ^"Ability Score" STRING "0" }
+        ]
+        ^"Traits" LIST OF #mmrpgProfileTrait0000 ^"Profile Trait" [
+            DEF { ^"Name" STRING "Abrasive"  ^"Printed" STRING "Abrasive" },
+            DEF { ^"Name" STRING "Connections"  ^"Detail" STRING "Criminals"  ^"Printed" STRING "Connections (Criminals)" },
+            DEF { ^"Name" STRING "Signature Attack"  ^"Detail" STRING "Elemental Blast"  ^"Printed" STRING "Signature Attack (Elemental Blast)" }
+        ]
+        ^"Tags" LIST OF #mmrpgProfileTrait0000 ^"Profile Trait" [
+            DEF { ^"Name" STRING "Black Market Access"  ^"Printed" STRING "Black Market Access" },
+            DEF { ^"Name" STRING "Hounded"  ^"Printed" STRING "Hounded" },
+            DEF { ^"Name" STRING "Streetwise"  ^"Printed" STRING "Streetwise" },
+            DEF { ^"Name" STRING "X-Gene"  ^"Printed" STRING "X-Gene" }
+        ]
+        ^"Real Name" STRING "Cody Kennedy"
+        ^"Height" STRING "5'11\""
+        ^"Weight" STRING "180 lbs"
+        ^"Gender" STRING "Male"
+        ^"Eyes" STRING "Blue"
+        ^"Hair" STRING "Blond"
+        ^"Size" STRING "Medium"
+        ^"Occupation" STRING "Criminal"
+        ^"Origin" STRING "Mutant"
+        ^"Teams" STRING "X-FRONT"
+        ^"History" STRING "Cody went to jail for assaulting a school resource officer during an altercation at his high school in Atlanta.\n\nWas tried and convicted as an adult. Currently in violation of parole.\n\nHe has managed to avoid getting outed as a mutant so far."
+        ^"Personality" STRING "Aggressive, unfocused, impulsive, resentful of the state.\n\nGoal: Is seeking to shake off the restrictions and constraints that has hampered him.\n\nBarrier: Cody is in denial that mere “freedom from” is sufficient. His goal is purely reductive right now, but he lacks a positive vision of the future, for himself or for others."
+        ^"Biography Sections" LIST OF #mmrpgBioSection000000 ^"Biography Section" [
+            DEF { ^"Heading" STRING "Current Age"  ^"Text" STRING "18" }
+        ]
+        ^"Powers" LIST OF #mmrpgPowerGroup000000 ^"Power Group" [
+            DEF { ^"Set" STRING "Basic"  ^"Powers" LIST OF #mmrpgPowerEntry000000 ^"Power Entry" [DEF { ^"Name" STRING "Accuracy 1"  ^"Printed" STRING "Accuracy 1 (Permanent)" }, DEF { ^"Name" STRING "Brawling"  ^"Printed" STRING "Brawling (Permanent)" }, DEF { ^"Name" STRING "Evasion"  ^"Printed" STRING "Evasion (Permanent)" }, DEF { ^"Name" STRING "Mighty 1"  ^"Printed" STRING "Mighty 1 (Permanent)" }] },
+            DEF { ^"Set" STRING "Elemental Control (Energy/Force)"  ^"Powers" LIST OF #mmrpgPowerEntry000000 ^"Power Entry" [DEF { ^"Name" STRING "Elemental Burst (Half-Life)"  ^"Printed" STRING "Elemental Burst (Standard, Instant, Range: 10 spaces)" }, DEF { ^"Name" STRING "Elemental Blast (Half-Life)"  ^"Printed" STRING "Elemental Blast (Standard, Instant, Cost: 5+ Focus, Range: 10 spaces)" }] },
+            DEF { ^"Set" STRING "Weapons"  ^"Powers" LIST OF #mmrpgPowerEntry000000 ^"Power Entry" [DEF { ^"Name" STRING "Knife"  ^"Printed" STRING "Knife (Range: Reach, Damage Multiplier Bonus: +1) Weapons add a bonus to the user’s damage multiplier. This does not stack with any other damage multiplier bonus, so don’t add them together. Instead, use the greater of the two." }] }
+        ]
+    }
+}

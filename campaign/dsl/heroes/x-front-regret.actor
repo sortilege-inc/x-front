@@ -1,0 +1,64 @@
+# source: campaign/source/sheets/Regret.pdf — the owner's short-form sheet (2025), by convert_heroes.py
+#xfYO4r1AfnlAxWyE2CSzeX ^"Regret" DEF {
+    EXTENDS #mmrpgCharacter0000000 ^"Character"
+    PROPERTIES {
+        ^"Name" STRING "Regret"
+        ^"Rank" STRING "2"
+        ^"Karma" STRING "2"
+        ^"Health" STRING "30"
+        ^"Health Damage Reduction" STRING "-"
+        ^"Focus" STRING "90"
+        ^"Focus Damage Reduction" STRING "-"
+        ^"Initiative Modifier" STRING "+3"
+        ^"Speeds" LIST OF #mmrpgSpeed00000000000 ^"Speed" [
+            DEF { ^"Mode" STRING "Run"  ^"Speed" STRING "5" },
+            DEF { ^"Mode" STRING "Climb"  ^"Speed" STRING "3" },
+            DEF { ^"Mode" STRING "Swim"  ^"Speed" STRING "3" },
+            DEF { ^"Mode" STRING "Jump"  ^"Speed" STRING "3" }
+        ]
+        ^"Abilities" LIST OF #mmrpgAbilityLine00000 ^"Ability Line" [
+            DEF { ^"Ability" STRING "Melee"  ^"Ability Score" STRING "1"  ^"Defense Score" STRING "11"  ^"Non-Combat Checks" STRING "+1" },
+            DEF { ^"Ability" STRING "Agility"  ^"Ability Score" STRING "1"  ^"Defense Score" STRING "11"  ^"Non-Combat Checks" STRING "+1" },
+            DEF { ^"Ability" STRING "Resilience"  ^"Ability Score" STRING "1"  ^"Defense Score" STRING "11"  ^"Non-Combat Checks" STRING "+1" },
+            DEF { ^"Ability" STRING "Vigilance"  ^"Ability Score" STRING "3"  ^"Defense Score" STRING "13"  ^"Non-Combat Checks" STRING "+3" },
+            DEF { ^"Ability" STRING "Ego"  ^"Ability Score" STRING "4"  ^"Defense Score" STRING "14"  ^"Non-Combat Checks" STRING "+4" },
+            DEF { ^"Ability" STRING "Logic"  ^"Ability Score" STRING "3"  ^"Defense Score" STRING "13"  ^"Non-Combat Checks" STRING "+3" }
+        ]
+        ^"Damage" LIST OF #mmrpgDamageLine000000 ^"Damage Line" [
+            DEF { ^"Ability" STRING "Melee"  ^"Multiplier" STRING "2"  ^"Ability Score" STRING "1" },
+            DEF { ^"Ability" STRING "Agility"  ^"Multiplier" STRING "2"  ^"Ability Score" STRING "1" },
+            DEF { ^"Ability" STRING "Ego"  ^"Multiplier" STRING "2"  ^"Ability Score" STRING "4" },
+            DEF { ^"Ability" STRING "Logic"  ^"Multiplier" STRING "2"  ^"Ability Score" STRING "3" }
+        ]
+        ^"Traits" LIST OF #mmrpgProfileTrait0000 ^"Profile Trait" [
+            DEF { ^"Name" STRING "Connections"  ^"Detail" STRING "Mutants"  ^"Printed" STRING "Connections (Mutants)" },
+            DEF { ^"Name" STRING "Dealmaker"  ^"Printed" STRING "Dealmaker" },
+            DEF { ^"Name" STRING "Fresh Eyes"  ^"Printed" STRING "Fresh Eyes" },
+            DEF { ^"Name" STRING "Fearless"  ^"Printed" STRING "Fearless" },
+            DEF { ^"Name" STRING "Iron Will"  ^"Printed" STRING "Iron Will" }
+        ]
+        ^"Tags" LIST OF #mmrpgProfileTrait0000 ^"Profile Trait" [
+            DEF { ^"Name" STRING "Black Market Access"  ^"Printed" STRING "Black Market Access" },
+            DEF { ^"Name" STRING "Hounded"  ^"Printed" STRING "Hounded" },
+            DEF { ^"Name" STRING "X-Gene"  ^"Printed" STRING "X-Gene" }
+        ]
+        ^"Real Name" STRING "Mohamed Salem"
+        ^"Height" STRING "5'10\""
+        ^"Weight" STRING "168 lbs"
+        ^"Gender" STRING "Male"
+        ^"Eyes" STRING "Brown"
+        ^"Hair" STRING "Black"
+        ^"Size" STRING "Medium"
+        ^"Occupation" STRING "Adventurer"
+        ^"Origin" STRING "Mutant"
+        ^"Teams" STRING "X-FRONT"
+        ^"History" STRING "Left home in Houston before he could be kicked out. He feels deeply conflicted about his power, as he deems it coercive. He left home out of fear that he couldn’t trust his parents’ acceptance of him. They still don’t know he’s a mutant.\n\nBeen with X-FRONT less than a year. Has been supportive of Toya's leadership, and was involved in the rescue operation for Hermes."
+        ^"Personality" STRING "Deeply emotionally intelligent, balanced between emotion and intellect. He’s soft-spoken, but speaks and acts decisively.\n\nGoal: Mohamed has hope for a world of mutant-human acceptance. He sees the direct action of X-FRONT as a temporary necessity, and looks forward to the day that it can be disbanded.\n\nBarrier: The present is not that time. X-FRONT is very necessary to correct the absurd injustices that cannot wait for resolution."
+        ^"Biography Sections" LIST OF #mmrpgBioSection000000 ^"Biography Section" [
+            DEF { ^"Heading" STRING "Current Age"  ^"Text" STRING "16" }
+        ]
+        ^"Powers" LIST OF #mmrpgPowerGroup000000 ^"Power Group" [
+            DEF { ^"Set" STRING "Telepathy"  ^"Powers" LIST OF #mmrpgPowerEntry000000 ^"Power Entry" [DEF { ^"Name" STRING "Telepathic Link"  ^"Printed" STRING "Telepathic Link (Standard, Concentration)" }, DEF { ^"Name" STRING "Mental Punch"  ^"Printed" STRING "Mental Punch (Standard, Instant)" }, DEF { ^"Name" STRING "Mind Reading"  ^"Printed" STRING "Mind Reading (Standard, 1 round)" }, DEF { ^"Name" STRING "Mind Interrogation"  ^"Printed" STRING "Mind Interrogation (Standard, 1 round, Cost: 5 Focus)" }, DEF { ^"Name" STRING "Telepathic Blast"  ^"Printed" STRING "Telepathic Blast (Standard, Instant, Cost: 5 Focus)" }] }
+        ]
+    }
+}

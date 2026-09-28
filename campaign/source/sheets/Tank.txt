@@ -1,0 +1,357 @@
+Tank
+3
+0 10 +0
+4 14 +4
+2 12 +2
+5 15 +5
+2 12 +2
+2 12 +2
+3 0
+3 4
+3 2
+3 2
+_/3
+__/60 -1
+___/150 -
++5
+5
+3
+3
+Jump: 3
+Abrasive: The character rubs people
+the wrong way. This gives them
+trouble when trying to make Ego
+checks to persuade someone to
+help them out. It gives them an
+edge when they’re trying to make
+Ego checks to intimidate someone.
+Audience: Many people follow the
+character’s work and treat them with
+the respect they deserve. By
+making an Ego check, the character
+can persuade their audience to
+provide help in the form of
+information or resources. The
+Narrator determines the TN of the
+Ego check based on the favor
+requested.
+Connections (Community): By
+making an Ego check, the character
+can call on their contact to provide
+help in the form of clues, information
+or resources. The Narrator
+determines the TN of the Ego check
+based on the favor requested.
+Hounded: The
+character is a
+member of a
+group of people
+who are
+persecuted for
+simply being
+themselves.
+X-Gene: The
+character has
+mutant genes
+that cause them
+to develop super-
+powers.
+Inspiration (Standard, 1 round): The
+character inspires an ally in earshot.
+The ally gains an edge on all action
+checks until the start of the
+character’s next turn.
+Sturdy 1 (Permanent): The
+character’s body is so sturdy that they
+have Health Damage Reduction 1.
+Tactics
+======
+Battle Plan (Standard, 1 round, Cost:
+10 Focus): The character inspires
+one or more allies of their choice in
+earshot, up to the character’s
+Vigilance. Inspired allies gain an edge
+on all action checks until the start of
+the character’s next turn.
+Focus Fire (Standard, Concentration,
+Cost: 10 Focus): The character calls
+out an enemy in line of sight and
+inspires one or more allies of their
+choice in earshot, up to the
+character’s Vigilance. They gain an
+edge on all action checks against that
+enemy.
+Tactics
+======
+Keep Moving (Reaction, Instant):
+[Trigger: An ally in line of sight and
+earshot is demoralized or stunned]
+The demoralized or stunned
+condition ends.
+On Your Feet (Reaction, Instant,
+Cost: 5 Focus): [Trigger: An ally in
+line of sight and earshot is knocked
+prone.] All prone allies within
+earshot, who are able to, can
+immediately stand up for free.
+Allies currently unable to stand up
+for any reason are not affected.
+Rally On Me (Standard, Instant, 10
+Focus): Any allies in earshot can
+be affected, up to a number equal
+to the character’s Vigilance. Each
+affected ally can move toward the
+character at half speed. If they are
+within the character’s reach at the
+end of this move, they recover lost
+Focus equal to 5 times the
+character’s rank. The character
+can use this power once per battle.
+Traits continued
+============
+Fearless: The character is
+extremely brave. They have an
+edge on any action checks
+required to deal with fear.
+Font of Information: The character
+has an edge on Logic checks
+having to do with knowledge.
+Fresh Eyes: The character has
+their own way of doing things.
+This often makes them seem
+strange to those around them, but
+it means they can bring new
+perspectives to existing issues.
+They have an edge on Logic
+checks when faced with
+something for the first time.
+Presence: The character knows
+how to command attention on
+demand. They have an edge on
+Ego checks that involve getting
+people to pay attention to them or
+to voluntarily do things for them.
+Toya Terrence
+5'10" 185 lbs Non-binary
+Brown Black Medium
+Educator
+Mutant
+X-FRONT
+Had attended the mutant pride march in
+Tallahassee, tried to go incognito, but when
+things started getting rough they stepped up to
+protect the marchers when the police wouldn’t.
+Having faced the seeming failure of protesting
+and petitioning, Toya has used that rejection to
+energize their commitment to direct action,
+having formed X-FRONT with Tabitha.
+Current Age: 22
+As the eldest and co-founder of X-Front, Toya
+has a presumption to authority and resists
+accountability.
+Goal: They want the freedom to act with the
+power of the group behind them, but chafe at
+being told what to do.
+Barrier: Given the volatile combination of the
+members of X-FRONT leadership requires self-
+control, confidence, and clarity. Ambiguity and
+recklessness lead to pulling in different
+directions, impeding progress, and frustrations.
+POWERS
+DAMAGE
+BIOGRAPHY
+RANK
+KARMA
+HEALTH
+FOCUS
+DAMAGE
+REDUCTION
+DAMAGE
+REDUCTION
+INITIATIVE
+MODIFIER
+TRAITS & TAGS
+Traits Tags
+ABILITIES
+ABILITY
+SCORE
+DEFENSE
+SCORE
+NON-COMBAT
+CHECKS
+MELEE
+AGILITY
+RESILIENCE
+VIGILANCE
+EGO
+LOGIC
+dMarvel
+dMarvel
+dMarvel
+dMarvel MULTIPLIER
+MULTIPLIER
+MULTIPLIER
+MULTIPLIER
+SPEED
+Run:
+Climb:
+Swim:
+Real Name:
+Height:
+Eyes:
+Weight: Gender:
+Hair: Size:
+Distinguishing Features:
+Occupation:
+Origin:
+Teams:
+Base:
+HISTORY
+PERSONALITY
+ABILITY
+ABILITY
+ABILITY
+ABILITY
+MELEE AGILITY EGO LOGIC
+Art :NAME
+Elemental Control: Force
+===================
+Elemental Burst (Standard, Instant,
+10 spaces): The character makes a
+ranged attack against an enemy in
+line of sight. If the attack is a
+success, it inflicts regular damage.
+On a Fantastic success, the enemy
+takes double damage instead and
+has trouble on all actions for one
+round.
+Elemental Blast (Standard, Instant,
+Range: 10 Spaces, Cost: 5+
+Focus): The character makes a
+ranged attack with an edge at an
+enemy in line of sight. For this
+attack, add +1 to the character’s
+Agility damage bonus for every 2
+points of Focus they spend. On a
+success, an affected target takes
+that total damage. On a Fantastic
+success, an affected target takes
+double that total damage and has
+trouble on all actions for one round.
+Elemental Barrier: Force (Standard,
+Concentration, Cost: 5 Focus): The
+character forms a wall of their
+element within their line of sight
+and up to 10 spaces away per rank.
+This covers up to 2 spaces across
+(vertically/horizontally) per their
+rank. The character makes an
+Agility check and compares the
+results against the Agility defense
+of any target in the affected spaces.
+On a success, the character
+chooses which side of the barrier
+the target winds up on. On a failure,
+the target chooses. On a Fantastic
+success, the target has trouble on
+all actions for one round.
+Attacks against the barrier are
+against the character’s Ego
+defense. Any attacks against it that
+do 10 points of damage or less are
+instantly absorbed, and the barrier
+continues. If an attack does more
+than 10 points of damage, it
+destroys the barrier. Either way, the
+attack leaves those behind the
+barrier unharmed.
+Elemental Protection (Standard or Reaction,
+Concentration, Cost: 5 Focus): [Trigger: The
+character is attacked or otherwise in danger.]
+The character protects themselves with their
+element. Any attacks against them that do 10
+points of damage or less are instantly
+absorbed, and the protection continues. If an
+attack does more than 10 points of damage, it
+destroys the protection, allowing excess
+damage through.
+Elemental Sphere (Standard or Reaction,
+Concentration, Cost: 5 Focus): The character
+envelops themselves—and any chosen people
+within up to 5 spaces times their rank—in a
+protective sphere comprised of their element.
+When the sphere is formed, the character
+makes an Ego check and compares the
+results against the Agility defense of unwanted
+characters in the enclosed spaces. On a
+success, the character can move any
+unwanted people within the sphere’s perimeter
+to spaces outside of the sphere. On a
+Fantastic success, such moved people suffer
+full damage and have trouble on all actions for
+one round.
+Attacks against the sphere are against the
+character’s Ego defense. Any attacks against
+the sphere are absorbed as if made against
+the character’s Elemental Protection power,
+and the sphere continues. If an attack does
+more damage than the character’s Elemental
+Protection power can sustain, it destroys the
+sphere, but no one inside is harmed.
+POWERS
+DAMAGE
+BIOGRAPHY
+RANK
+KARMA
+HEALTH
+FOCUS
+DAMAGE
+REDUCTION
+DAMAGE
+REDUCTION
+INITIATIVE
+MODIFIER
+TRAITS & TAGS
+Traits Tags
+ABILITIES
+ABILITY
+SCORE
+DEFENSE
+SCORE
+NON-COMBAT
+CHECKS
+MELEE
+AGILITY
+RESILIENCE
+VIGILANCE
+EGO
+LOGIC
+dMarvel
+dMarvel
+dMarvel
+dMarvel MULTIPLIER
+MULTIPLIER
+MULTIPLIER
+MULTIPLIER
+SPEED
+Run:
+Climb:
+Swim:
+Real Name:
+Height:
+Eyes:
+Weight: Gender:
+Hair: Size:
+Distinguishing Features:
+Occupation:
+Origin:
+Teams:
+Base:
+HISTORY
+PERSONALITY
+ABILITY
+ABILITY
+ABILITY
+ABILITY
+MELEE AGILITY EGO LOGIC
+Art Author Art :

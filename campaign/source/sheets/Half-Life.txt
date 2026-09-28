@@ -1,0 +1,198 @@
+Half-Life
+2
+5 15 +6
+1 15 +2
+2 12 +2
+1 11 +1
+1 11 +1
+0 10 +0
+3 5
+3 1
+2 1
+2 0
+_/2
+__/60 -
+__/30 -
++1
+5
+3
+3
+Jump: 3
+Abrasive: The character rubs
+people the wrong way. This gives
+them trouble when trying to make
+Ego checks to persuade
+someone to help them out. It
+gives them an edge when they’re
+trying to make Ego checks to
+intimidate someone.
+Connections (Criminals): By
+making an Ego check, the
+character can call on their contact
+to provide help in the form of
+clues, information or resources.
+The Narrator determines the TN
+of the Ego check based on the
+favor requested.
+Signature Attack (Elemental
+Blast): The character is known for
+favoring a particular kind of
+weapon or attack power. They
+have an edge when making
+attacks that way.
+Black Market Access: The
+character knows how and
+where they can buy and
+sell hard-to-find and
+potentially illegal things.
+Hounded: The character
+is a member of a group of
+people who are
+persecuted for simply
+being themselves.
+Streetwise: The character
+knows how things are
+handled on the street,
+who’s in charge of various
+criminal enterprises and
+how to avoid issues with
+them.
+X-Gene: The character
+has mutant genes that
+cause them to develop
+super-powers.
+Accuracy 1 (Permanent): The
+character adds +1 to their Agility
+damage multiplier, and they gain a
++1 bonus to Agility checks other
+than attacks.
+Brawling (Permanent): The
+character can use their Melee
+defense score against Agility
+attacks too.
+Evasion (Permanent): The
+character can use their Agility
+defense score against Melee
+attacks too.
+Mighty 1 (Permanent): Treat the
+character as one size bigger for
+lifting, carrying, swinging and
+throwing things. They also add +1
+to their Melee damage multiplier,
+and they gain a +1 bonus to
+Melee checks other than attacks.
+Elemental Control (Energy/Force)
+=========================
+Elemental Burst (Standard,
+Instant, Range: 10 spaces): The
+character makes a ranged attack
+against an enemy in line of sight.
+If the attack is a success, it inflicts
+regular damage. On a Fantastic
+success, the enemy takes double
+damage instead and becomes
+Blinded for 1 round.
+Elemental Blast (Standard,
+Instant, Cost: 5+ Focus, Range:
+10 spaces): The character makes
+a ranged attack with an edge at
+an enemy in line of sight. For this
+attack, add +1 to the character’s
+Agility damage bonus for every 2
+points of Focus they spend. On a
+success, an affected target takes
+that total damage. On a Fantastic
+success, an affected target takes
+double that total damage and has
+trouble on all actions for one
+round.
+Weapons
+========
+Knife (Range: Reach, Damage
+Multiplier Bonus: +1)
+Weapons add a bonus to the
+user’s damage multiplier. This
+does not stack with any other
+damage multiplier bonus, so
+don’t add them together.
+Instead, use the greater of the
+two.
+Cody Kennedy
+5'11" 180 lbs Male
+Blue Blond Medium
+Criminal
+Mutant
+X-FRONT
+Cody went to jail for assaulting a school
+resource officer during an altercation at his
+high school in Atlanta.
+Was tried and convicted as an adult. Currently
+in violation of parole.
+He has managed to avoid getting outed as a
+mutant so far.
+Current Age: 18
+Aggressive, unfocused, impulsive, resentful of
+the state.
+Goal: Is seeking to shake off the restrictions
+and constraints that has hampered him.
+Barrier: Cody is in denial that mere “freedom
+from” is sufficient. His goal is purely reductive
+right now, but he lacks a positive vision of the
+future, for himself or for others.
+POWERS
+DAMAGE
+BIOGRAPHY
+RANK
+KARMA
+HEALTH
+FOCUS
+DAMAGE
+REDUCTION
+DAMAGE
+REDUCTION
+INITIATIVE
+MODIFIER
+TRAITS & TAGS
+Traits Tags
+ABILITIES
+ABILITY
+SCORE
+DEFENSE
+SCORE
+NON-COMBAT
+CHECKS
+MELEE
+AGILITY
+RESILIENCE
+VIGILANCE
+EGO
+LOGIC
+dMarvel
+dMarvel
+dMarvel
+dMarvel MULTIPLIER
+MULTIPLIER
+MULTIPLIER
+MULTIPLIER
+SPEED
+Run:
+Climb:
+Swim:
+Real Name:
+Height:
+Eyes:
+Weight: Gender:
+Hair: Size:
+Distinguishing Features:
+Occupation:
+Origin:
+Teams:
+Base:
+HISTORY
+PERSONALITY
+ABILITY
+ABILITY
+ABILITY
+ABILITY
+MELEE AGILITY EGO LOGIC
+Art :

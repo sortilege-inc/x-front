@@ -1,0 +1,200 @@
+Stasis
+2
+2 14 +2
+3 14 +3
+0 10 +0
+4 14 +4
+1 11 +1
+0 10 +0
+2 2
+2 3
+2 1
+2 0
+_/2
+__/10 -
+___/115 -
++4E
+4
+2
+2
+Jump: 2
+Combat Reflexes [The
+character can react quickly in
+combat. This grants them one
+additional reaction each
+round.]
+Free Running [The character
+has an edge on Agility checks
+made to perform acrobatics
+during a movement action.]
+Iron Will [Enemies have
+trouble on attacks to control
+the character’s mind or
+influence their behavior. Also,
+the character gains an edge
+on checks to break free of
+mind control or other
+compulsions.]
+Hounded [The character
+is a member of a group of
+people who are
+persecuted for simply
+being themselves.]
+Mentor (Toya & Tabitha)
+[The character knows an
+older person they can ask
+for advice, even when it
+comes to having super-
+powers.]
+X-Gene [The character
+has mutant genes that
+cause them to develop
+super-powers.]
+Young: The character is a
+minor, under 18 years old.
+If possible, they must
+report in to their parents
+or guardians on a regular
+basis.
+Evasion (Permanent): The character can use
+their Agility defense score against Melee attacks
+too.
+Slow-Motion Dodge (Reaction, Instant): [Trigger:
+An enemy makes an attack against the
+character’s Agility defense.] The enemy has
+trouble on the attack.
+Elemental Control: Velocity
+With a touch, he can paralyze anyone or
+anything; another touch he can release them.
+They are conscious throughout but trapped in an
+unmoving body. The body can be moved by
+external forces, just not of its own volition.
+==============
+Elemental Burst (Standard Action, Instant,
+Range: 10 spaces): The character makes a
+ranged attack against an enemy in line of sight.
+If the attack is a success, it inflicts regular
+damage. On a Fantastic success, the enemy
+takes double damage instead and is Paralyzed
+for one round.
+Elemental Grab (Standard Action,
+Concentration, Cost: 5 Focus): The character
+makes an Ego attack against a target’s Melee
+defense within 5 spaces times the character’s
+rank. If the attack is a success, the character
+grabs the target with their element. On a
+Fantastic success, the target can also be pinned
+and is Paralyzed for one round. Breaking free
+requires a successful Melee check against
+target number 20.
+Traits continued
+============
+Quick Learner [If the character fails an
+action check, they gain an edge on the
+check if they try the same action again
+on their next turn.]
+Situation Awareness [The character is
+trained to always keep an eye out for
+trouble. They have an edge on
+initiative checks.]
+Small [The character’s size is small,
+which adds +1 to their Melee and
+Agility defenses and takes –1 from
+their Run Speed.]
+Sneaky [The character has an edge on
+Agility checks when sneaking around.
+Enemies have trouble on Vigilance
+checks to detect the character when
+the character is invisible or hiding.]
+Weakness (Psychic) [The character
+suffers an unusual amount of harm
+from certain substances. Any attack
+made with that substance ignores all
+inherent damage reduction the
+character has and cannot be healed
+by their Healing Factor.]
+Hermes Montoya
+5'3" 107 lbs Male
+Brown Brown Small
+Burn scars on forearms
+Student
+Mutant
+X-FRONT
+Grew up in an evangelical Latino family in
+Arizona. When his X-gene expressed itself at
+13, his family's pastor at River of God Church
+tried to pray it away, and when that didn't work,
+recommended the Sanctuary Hills Youth
+Reformation Campus in the desert. Hermes'
+parents voluntarily sent him.
+He escaped the mutant conversion therapy
+camp with the assistance of X-FRONT four
+months prior.
+Current age: 14
+Hermes wakes up in the night terrified that he’s
+going to be kidnapped again.
+Goal: Moving past the trauma, and allowing
+that horribly experience to energize action,
+rather than paralyze.
+Barrier: The feelings of loss are overwhelming.
+There is unprocessed grief and anger that
+cannot be accessed because the panic is
+overwhelming. Hard to appreciate what he
+does have.
+POWERS
+DAMAGE
+BIOGRAPHY
+RANK
+KARMA
+HEALTH
+FOCUS
+DAMAGE
+REDUCTION
+DAMAGE
+REDUCTION
+INITIATIVE
+MODIFIER
+TRAITS & TAGS
+Traits Tags
+ABILITIES
+ABILITY
+SCORE
+DEFENSE
+SCORE
+NON-COMBAT
+CHECKS
+MELEE
+AGILITY
+RESILIENCE
+VIGILANCE
+EGO
+LOGIC
+dMarvel
+dMarvel
+dMarvel
+dMarvel MULTIPLIER
+MULTIPLIER
+MULTIPLIER
+MULTIPLIER
+SPEED
+Run:
+Climb:
+Swim:
+Real Name:
+Height:
+Eyes:
+Weight: Gender:
+Hair: Size:
+Distinguishing Features:
+Occupation:
+Origin:
+Teams:
+Base:
+HISTORY
+PERSONALITY
+ABILITY
+ABILITY
+ABILITY
+ABILITY
+MELEE AGILITY EGO LOGIC
+Art :

@@ -1,0 +1,71 @@
+# source: campaign/source/sheets/Stasis.pdf — the owner's short-form sheet (2025), by convert_heroes.py
+#xfDKoQlUSxAVn6dNVaGZ1J ^"Stasis" DEF {
+    EXTENDS #mmrpgCharacter0000000 ^"Character"
+    PROPERTIES {
+        ^"Name" STRING "Stasis"
+        ^"Rank" STRING "2"
+        ^"Karma" STRING "2"
+        ^"Health" STRING "10"
+        ^"Health Damage Reduction" STRING "-"
+        ^"Focus" STRING "115"
+        ^"Focus Damage Reduction" STRING "-"
+        ^"Initiative Modifier" STRING "+4E"
+        ^"Speeds" LIST OF #mmrpgSpeed00000000000 ^"Speed" [
+            DEF { ^"Mode" STRING "Run"  ^"Speed" STRING "4" },
+            DEF { ^"Mode" STRING "Climb"  ^"Speed" STRING "2" },
+            DEF { ^"Mode" STRING "Swim"  ^"Speed" STRING "2" },
+            DEF { ^"Mode" STRING "Jump"  ^"Speed" STRING "2" }
+        ]
+        ^"Abilities" LIST OF #mmrpgAbilityLine00000 ^"Ability Line" [
+            DEF { ^"Ability" STRING "Melee"  ^"Ability Score" STRING "2"  ^"Defense Score" STRING "14"  ^"Non-Combat Checks" STRING "+2" },
+            DEF { ^"Ability" STRING "Agility"  ^"Ability Score" STRING "3"  ^"Defense Score" STRING "14"  ^"Non-Combat Checks" STRING "+3" },
+            DEF { ^"Ability" STRING "Resilience"  ^"Ability Score" STRING "0"  ^"Defense Score" STRING "10"  ^"Non-Combat Checks" STRING "+0" },
+            DEF { ^"Ability" STRING "Vigilance"  ^"Ability Score" STRING "4"  ^"Defense Score" STRING "14"  ^"Non-Combat Checks" STRING "+4" },
+            DEF { ^"Ability" STRING "Ego"  ^"Ability Score" STRING "1"  ^"Defense Score" STRING "11"  ^"Non-Combat Checks" STRING "+1" },
+            DEF { ^"Ability" STRING "Logic"  ^"Ability Score" STRING "0"  ^"Defense Score" STRING "10"  ^"Non-Combat Checks" STRING "+0" }
+        ]
+        ^"Damage" LIST OF #mmrpgDamageLine000000 ^"Damage Line" [
+            DEF { ^"Ability" STRING "Melee"  ^"Multiplier" STRING "2"  ^"Ability Score" STRING "2" },
+            DEF { ^"Ability" STRING "Agility"  ^"Multiplier" STRING "2"  ^"Ability Score" STRING "3" },
+            DEF { ^"Ability" STRING "Ego"  ^"Multiplier" STRING "2"  ^"Ability Score" STRING "1" },
+            DEF { ^"Ability" STRING "Logic"  ^"Multiplier" STRING "2"  ^"Ability Score" STRING "0" }
+        ]
+        ^"Traits" LIST OF #mmrpgProfileTrait0000 ^"Profile Trait" [
+            DEF { ^"Name" STRING "Combat Reflexes"  ^"Printed" STRING "Combat Reflexes" },
+            DEF { ^"Name" STRING "Free Running"  ^"Printed" STRING "Free Running" },
+            DEF { ^"Name" STRING "Iron Will"  ^"Printed" STRING "Iron Will" },
+            DEF { ^"Name" STRING "Quick Learner"  ^"Printed" STRING "Quick Learner" },
+            DEF { ^"Name" STRING "Situational Awareness"  ^"Printed" STRING "Situation Awareness" },
+            DEF { ^"Name" STRING "Small"  ^"Printed" STRING "Small" },
+            DEF { ^"Name" STRING "Sneaky"  ^"Printed" STRING "Sneaky" },
+            DEF { ^"Name" STRING "Weakness"  ^"Detail" STRING "Psychic"  ^"Printed" STRING "Weakness (Psychic)" }
+        ]
+        ^"Tags" LIST OF #mmrpgProfileTrait0000 ^"Profile Trait" [
+            DEF { ^"Name" STRING "Hounded"  ^"Printed" STRING "Hounded" },
+            DEF { ^"Name" STRING "Mentor"  ^"Detail" STRING "Toya & Tabitha"  ^"Printed" STRING "Mentor (Toya & Tabitha)" },
+            DEF { ^"Name" STRING "X-Gene"  ^"Printed" STRING "X-Gene" },
+            DEF { ^"Name" STRING "Young"  ^"Printed" STRING "Young" }
+        ]
+        ^"Real Name" STRING "Hermes Montoya"
+        ^"Height" STRING "5'3\""
+        ^"Weight" STRING "107 lbs"
+        ^"Gender" STRING "Male"
+        ^"Eyes" STRING "Brown"
+        ^"Hair" STRING "Brown"
+        ^"Size" STRING "Small"
+        ^"Distinguishing Features" STRING "Burn scars on forearms"
+        ^"Occupation" STRING "Student"
+        ^"Origin" STRING "Mutant"
+        ^"Teams" STRING "X-FRONT"
+        ^"History" STRING "Grew up in an evangelical Latino family in Arizona. When his X-gene expressed itself at 13, his family's pastor at River of God Church tried to pray it away, and when that didn't work, recommended the Sanctuary Hills Youth Reformation Campus in the desert. Hermes' parents voluntarily sent him.\n\nHe escaped the mutant conversion therapy camp with the assistance of X-FRONT four months prior."
+        ^"Personality" STRING "Hermes wakes up in the night terrified that he’s going to be kidnapped again.\n\nGoal: Moving past the trauma, and allowing that horribly experience to energize action, rather than paralyze.\n\nBarrier: The feelings of loss are overwhelming. There is unprocessed grief and anger that cannot be accessed because the panic is overwhelming. Hard to appreciate what he does have."
+        ^"Biography Sections" LIST OF #mmrpgBioSection000000 ^"Biography Section" [
+            DEF { ^"Heading" STRING "Current age"  ^"Text" STRING "14" },
+            DEF { ^"Heading" STRING "Elemental Control: Velocity"  ^"Text" STRING "With a touch, he can paralyze anyone or anything; another touch he can release them. They are conscious throughout but trapped in an unmoving body. The body can be moved by external forces, just not of its own volition." }
+        ]
+        ^"Powers" LIST OF #mmrpgPowerGroup000000 ^"Power Group" [
+            DEF { ^"Set" STRING "Basic"  ^"Powers" LIST OF #mmrpgPowerEntry000000 ^"Power Entry" [DEF { ^"Name" STRING "Evasion"  ^"Printed" STRING "Evasion (Permanent)" }, DEF { ^"Name" STRING "Slow-Motion Dodge"  ^"Printed" STRING "Slow-Motion Dodge (Reaction, Instant)" }] },
+            DEF { ^"Set" STRING "Elemental Control: Velocity"  ^"Powers" LIST OF #mmrpgPowerEntry000000 ^"Power Entry" [DEF { ^"Name" STRING "Elemental Burst (Stasis)"  ^"Printed" STRING "Elemental Burst (Standard Action, Instant, Range: 10 spaces)" }, DEF { ^"Name" STRING "Elemental Grab (Stasis)"  ^"Printed" STRING "Elemental Grab (Standard Action, Concentration, Cost: 5 Focus)" }] }
+        ]
+    }
+}

@@ -1,0 +1,227 @@
+Regret
+2
+1 11 +1
+1 11 +1
+1 11 +1
+3 13 +3
+4 14 +4
+3 13 +3
+2 1
+2 1
+2 4
+2 3
+_/2
+__/30 -
+__/90 -
++3
+5
+3
+3
+Jump: 3
+Connections (Mutants): By
+making an Ego check, the
+character can call on their contact
+to provide help in the form of
+clues, information or resources.
+The Narrator determines the TN
+of the Ego check based on the
+favor requested.
+Dealmaker: The character is
+skilled at the art of negotiation.
+They have an edge on action
+checks that have to do with
+making deals.
+Fresh Eyes: The character has
+their own way of doing things.
+This often makes them seem
+strange to those around them,
+but it means they can bring new
+perspectives to existing issues.
+They have an edge on Logic
+checks when faced with
+something for the first time.
+Black Market Access:
+The character knows
+how and where they
+can buy and sell
+hard-to-find and
+potentially illegal
+things.
+Hounded: The
+character is a
+member of a group of
+people who are
+persecuted for simply
+being themselves.
+X-Gene: The
+character has mutant
+genes that cause
+them to develop
+super-powers.
+Telepathy
+========
+Telepathic Link (Standard,
+Concentration): The character can
+communicate telepathically with one
+person at a time, and they must have
+met or seen the other person before.
+The communication can be verbal,
+visual or even more complex, such as
+imparting location information. There
+is no limit to the distance of the
+communication, as long as the
+character and the target are in the
+same dimension. If the other person
+does not wish to speak with the
+character, the target can automatically
+tune them out. To force a telepathic
+link, the character can make a Logic
+check against the target’s Vigilance
+defense. On a failure, the character
+cannot attempt to communicate with
+the target in this way for the rest of
+the day. On a success, the character
+can communicate with the target for
+as long as the concentration lasts. On
+a Fantastic success, the target cannot
+shut the character out for the rest of
+the day.
+Telepathy
+========
+Mental Punch (Standard, Instant): The
+character makes a Melee attack against
+a target. If the attack is a success, it
+inflicts regular Focus damage (instead of
+Health damage). On a Fantastic success,
+the target takes double damage instead
+and is stunned for one round.
+Mind Reading (Standard, 1 round): The
+character can read the thoughts of a
+single person with whom they have
+established a Telepathic Link. This
+requires a Logic check against the
+target’s Logic defense. On a success, the
+character can read the target’s surface
+thoughts. On a Fantastic success, the
+character can ask a single simple
+question and get the answer from the
+target’s mind.
+Mind Interrogation (Standard, 1 round,
+Cost: 5 Focus): The character can delve
+into the mind of a single person with
+whom they have established a telepathic
+link. This requires a Logic check against
+the target’s Logic defense. On a success,
+the character can ask a single simple
+question and get the answer from the
+target’s mind. On a Fantastic success,
+the character can get more complex
+information.
+Telepathy
+========
+Telepathic Blast (Standard,
+Instant, Cost: 5 Focus): The
+character makes a Logic attack
+against a target in line of sight. If
+the attack is a success, it inflicts
+regular Focus damage. On a
+Fantastic success, the target
+takes double damage instead
+and is stunned for one round.
+Traits, continued
+=============
+Fearless: The character is
+extremely brave. They have an
+edge on any action checks
+required to deal with fear.
+Iron Will: Enemies have trouble
+on attacks to control the
+character’s mind or influence
+their behavior. Also, the
+character gains an edge on
+checks to break free of mind
+control or other compulsions.
+Mohamed Salem
+5'10" 168 lbs Male
+Brown Black Medium
+Adventurer
+Mutant
+X-FRONT
+Left home in Houston before he could be
+kicked out. He feels deeply conflicted about his
+power, as he deems it coercive. He left home
+out of fear that he couldn’t trust his parents’
+acceptance of him. They still don’t know he’s a
+mutant.
+Been with X-FRONT less than a year. Has
+been supportive of Toya's leadership, and was
+involved in the rescue operation for Hermes.
+Current Age: 16
+Deeply emotionally intelligent, balanced
+between emotion and intellect. He’s soft-
+spoken, but speaks and acts decisively.
+Goal: Mohamed has hope for a world of
+mutant-human acceptance. He sees the direct
+action of X-FRONT as a temporary necessity,
+and looks forward to the day that it can be
+disbanded.
+Barrier: The present is not that time. X-FRONT
+is very necessary to correct the absurd
+injustices that cannot wait for resolution.
+POWERS
+DAMAGE
+BIOGRAPHY
+RANK
+KARMA
+HEALTH
+FOCUS
+DAMAGE
+REDUCTION
+DAMAGE
+REDUCTION
+INITIATIVE
+MODIFIER
+TRAITS & TAGS
+Traits Tags
+ABILITIES
+ABILITY
+SCORE
+DEFENSE
+SCORE
+NON-COMBAT
+CHECKS
+MELEE
+AGILITY
+RESILIENCE
+VIGILANCE
+EGO
+LOGIC
+dMarvel
+dMarvel
+dMarvel
+dMarvel MULTIPLIER
+MULTIPLIER
+MULTIPLIER
+MULTIPLIER
+SPEED
+Run:
+Climb:
+Swim:
+Real Name:
+Height:
+Eyes:
+Weight: Gender:
+Hair: Size:
+Distinguishing Features:
+Occupation:
+Origin:
+Teams:
+Base:
+HISTORY
+PERSONALITY
+ABILITY
+ABILITY
+ABILITY
+ABILITY
+MELEE AGILITY EGO LOGIC
+Art :

@@ -1,0 +1,68 @@
+# source: campaign/source/sheets/Flare.pdf — the owner's short-form sheet (2025), by convert_heroes.py
+#xfxaZKxl3616qtqNVpfyA6 ^"Flare" DEF {
+    EXTENDS #mmrpgCharacter0000000 ^"Character"
+    PROPERTIES {
+        ^"Name" STRING "Flare"
+        ^"Rank" STRING "4"
+        ^"Karma" STRING "4"
+        ^"Health" STRING "120"
+        ^"Health Damage Reduction" STRING "-"
+        ^"Focus" STRING "60"
+        ^"Focus Damage Reduction" STRING "-"
+        ^"Initiative Modifier" STRING "+2"
+        ^"Speeds" LIST OF #mmrpgSpeed00000000000 ^"Speed" [
+            DEF { ^"Mode" STRING "Run"  ^"Speed" STRING "5" },
+            DEF { ^"Mode" STRING "Climb"  ^"Speed" STRING "3" },
+            DEF { ^"Mode" STRING "Swim"  ^"Speed" STRING "3" },
+            DEF { ^"Mode" STRING "Flight"  ^"Speed" STRING "20" }
+        ]
+        ^"Abilities" LIST OF #mmrpgAbilityLine00000 ^"Ability Line" [
+            DEF { ^"Ability" STRING "Melee"  ^"Ability Score" STRING "2"  ^"Defense Score" STRING "13"  ^"Non-Combat Checks" STRING "+2" },
+            DEF { ^"Ability" STRING "Agility"  ^"Ability Score" STRING "6"  ^"Defense Score" STRING "17"  ^"Non-Combat Checks" STRING "+6" },
+            DEF { ^"Ability" STRING "Resilience"  ^"Ability Score" STRING "4"  ^"Defense Score" STRING "14"  ^"Non-Combat Checks" STRING "+4" },
+            DEF { ^"Ability" STRING "Vigilance"  ^"Ability Score" STRING "2"  ^"Defense Score" STRING "12"  ^"Non-Combat Checks" STRING "+2" },
+            DEF { ^"Ability" STRING "Ego"  ^"Ability Score" STRING "6"  ^"Defense Score" STRING "16"  ^"Non-Combat Checks" STRING "+6" },
+            DEF { ^"Ability" STRING "Logic"  ^"Ability Score" STRING "3"  ^"Defense Score" STRING "16"  ^"Non-Combat Checks" STRING "+3" }
+        ]
+        ^"Damage" LIST OF #mmrpgDamageLine000000 ^"Damage Line" [
+            DEF { ^"Ability" STRING "Melee"  ^"Multiplier" STRING "4"  ^"Ability Score" STRING "2" },
+            DEF { ^"Ability" STRING "Agility"  ^"Multiplier" STRING "5"  ^"Ability Score" STRING "6" },
+            DEF { ^"Ability" STRING "Ego"  ^"Multiplier" STRING "4"  ^"Ability Score" STRING "6" },
+            DEF { ^"Ability" STRING "Logic"  ^"Multiplier" STRING "4"  ^"Ability Score" STRING "3" }
+        ]
+        ^"Traits" LIST OF #mmrpgProfileTrait0000 ^"Profile Trait" [
+            DEF { ^"Name" STRING "Famous"  ^"Printed" STRING "Famous" },
+            DEF { ^"Name" STRING "Gullible"  ^"Printed" STRING "Gullible" },
+            DEF { ^"Name" STRING "Honest"  ^"Printed" STRING "Honest" },
+            DEF { ^"Name" STRING "Inventor"  ^"Printed" STRING "Inventor" },
+            DEF { ^"Name" STRING "Quick Learner"  ^"Printed" STRING "Quick Learner" },
+            DEF { ^"Name" STRING "Signature Attack"  ^"Detail" STRING "Supernova"  ^"Printed" STRING "Signature Attack (Supernova)" },
+            DEF { ^"Name" STRING "Small"  ^"Printed" STRING "Small" }
+        ]
+        ^"Tags" LIST OF #mmrpgProfileTrait0000 ^"Profile Trait" [
+            DEF { ^"Name" STRING "Hounded"  ^"Printed" STRING "Hounded" },
+            DEF { ^"Name" STRING "X-Gene"  ^"Printed" STRING "X-Gene" },
+            DEF { ^"Name" STRING "Young"  ^"Printed" STRING "Young" }
+        ]
+        ^"Real Name" STRING "Taylor Crenshaw"
+        ^"Height" STRING "5'6\""
+        ^"Weight" STRING "132 lbs"
+        ^"Gender" STRING "Female"
+        ^"Eyes" STRING "Brown"
+        ^"Hair" STRING "Black"
+        ^"Size" STRING "Medium"
+        ^"Distinguishing Features" STRING "Glowing streaks going up neck and spine"
+        ^"Occupation" STRING "Student"
+        ^"Origin" STRING "Mutant"
+        ^"Teams" STRING "None"
+        ^"History" STRING "The recent law passed in Florida about state-sanctioned kidnapping of mutant minors was controversial but seemingly theoretical. When a high-school basketball game was interrupted by one of the cheering students seemingly erupting in light & knocking out the power for three blocks, an investigation occurred, and state officials came to the home of Taylor Crenshaw and her parents begrudgingly handed her over despite protests. It garnered national media coverage."
+        ^"Personality" STRING "Energetic, impatient, tactless. Very ADHD, very inexperienced.\n\nGoal: Taylor sees her power as something to be celebrated, not hidden, and wants to do good with it.\n\nBarrier: Taylor knows that being able to remain with her family and friends means pretending that she isn’t a mutant."
+        ^"Biography Sections" LIST OF #mmrpgBioSection000000 ^"Biography Section" [
+            DEF { ^"Heading" STRING "Current Age"  ^"Text" STRING "15" }
+        ]
+        ^"Powers" LIST OF #mmrpgPowerGroup000000 ^"Power Group" [
+            DEF { ^"Set" STRING "Basic"  ^"Powers" LIST OF #mmrpgPowerEntry000000 ^"Power Entry" [DEF { ^"Name" STRING "Wisdom"  ^"Printed" STRING "Wisdom (Permanent)" }, DEF { ^"Name" STRING "Flight 1"  ^"Printed" STRING "Flight (Permanent)" }] },
+            DEF { ^"Set" STRING "Elemental Control (Electricity/Energy)"  ^"Powers" LIST OF #mmrpgPowerEntry000000 ^"Power Entry" [DEF { ^"Name" STRING "Elemental Burst (Flare)"  ^"Printed" STRING "Elemental Burst (Standard, Instant, Range: 10 spaces)" }, DEF { ^"Name" STRING "Elemental Blast (Flare)"  ^"Printed" STRING "Elemental Blast (Standard, Instant, Range: 10 spaces, Cost: 5+ Focus)" }, DEF { ^"Name" STRING "Elemental Barrage (Flare)"  ^"Printed" STRING "Elemental Barrage (Standard, Instant, Cost: 15 Focus, only Electricity)" }, DEF { ^"Name" STRING "Elemental Push (Flare)"  ^"Printed" STRING "Elemental Push (Standard, Instant, Cost: 10 Focus)" }, DEF { ^"Name" STRING "Energy Absorption"  ^"Printed" STRING "Energy Absorption (Reaction, Instant, Cost: 15 Focus)" }, DEF { ^"Name" STRING "Elemental Ricochet"  ^"Printed" STRING "Elemental Ricochet (Electricity only, Standard, Instant, Range: 40 spaces, Cost: 10 Focus)" }, DEF { ^"Name" STRING "Supernova (Flare)"  ^"Printed" STRING "Supernova (Standard, Instant, Cost: 15+ Focus)" }] }
+        ]
+    }
+}

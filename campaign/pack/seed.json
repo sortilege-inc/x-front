@@ -1,0 +1,134 @@
+{
+ "kind": "sortilege-vtt-campaign",
+ "version": 1,
+ "gm": {
+  "overview": [
+   {
+    "id": "xf-premise",
+    "title": "X-FRONT",
+    "text": "X-FRONT is a group of young mutants who take direct action. Toya Terrence (Tank) and Tabitha Fanning (Taboo) formed it together: they met at a mutant pride march in Tallahassee that went south, where Toya, trying to go incognito, stepped up to protect the marchers when the police wouldn't. [SET — Tank's and Taboo's sheets]\n\nToya, 22, is the eldest. Having faced the seeming failure of protesting and petitioning, they turned to direct action. Tabitha, 17, briefly attended Xavier's academy, found it cowardly at best, and dropped out after repeated arguments and conflicts with the teachers. [SET — Tank's and Taboo's sheets]\n\nHermes Montoya (Stasis), 14, escaped the Sanctuary Hills Youth Reformation Campus, a mutant conversion therapy camp in the Arizona desert, with X-FRONT's help four months ago; his Mentor tag names Toya & Tabitha. Mohamed Salem (Regret), 16, has been with X-FRONT less than a year and was involved in the rescue operation for Hermes. Cody Kennedy (Half-Life), 18, of Atlanta, is in violation of parole and has not been outed as a mutant. [SET — Stasis's, Regret's and Half-Life's sheets]\n\nTaylor Crenshaw (Flare), 15, is not on the team: her sheet's Teams line reads None. Under a recent Florida law on state-sanctioned kidnapping of mutant minors, state officials came to her home after she erupted in light at a high-school basketball game and knocked out the power for three blocks; her parents handed her over. It garnered national media coverage. [SET — Flare's sheet]"
+   },
+   {
+    "id": "xf-ranks",
+    "title": "The heroes' ranks",
+    "text": "Flare is Rank 4, Tank Rank 3, and Half-Life, Regret, Stasis and Taboo Rank 2. [SET — the sheets]\n\nFour of the sheets (Flare, Half-Life, Stasis, Tank) print their own wording for Elemental Control powers: each writes its element's special effect into the Fantastic success, as the book's Elemental Control tells a player to. Stasis's element is his own, Velocity, and paralyzes. Those powers are this campaign's, under the hero's name (*Elemental Burst (Stasis)*); every other entry on the sheets opens the book's. [SET — the sheets; campaign/PLAN.md]"
+   }
+  ]
+ },
+ "party": [
+  {
+   "id": "xf-member-flare",
+   "templateId": "#xfxaZKxl3616qtqNVpfyA6",
+   "name": "Flare",
+   "player": "",
+   "profile": "#xfxaZKxl3616qtqNVpfyA6",
+   "character": null,
+   "source": {
+    "kind": "profile",
+    "id": "#xfxaZKxl3616qtqNVpfyA6",
+    "book": "campaign"
+   },
+   "live": {
+    "health": 120,
+    "focus": 60,
+    "karma": 4
+   },
+   "notes": ""
+  },
+  {
+   "id": "xf-member-half-life",
+   "templateId": "#xfFueyJXe7eZxOV7vxflxs",
+   "name": "Half-Life",
+   "player": "",
+   "profile": "#xfFueyJXe7eZxOV7vxflxs",
+   "character": null,
+   "source": {
+    "kind": "profile",
+    "id": "#xfFueyJXe7eZxOV7vxflxs",
+    "book": "campaign"
+   },
+   "live": {
+    "health": 60,
+    "focus": 30,
+    "karma": 2
+   },
+   "notes": ""
+  },
+  {
+   "id": "xf-member-regret",
+   "templateId": "#xfYO4r1AfnlAxWyE2CSzeX",
+   "name": "Regret",
+   "player": "",
+   "profile": "#xfYO4r1AfnlAxWyE2CSzeX",
+   "character": null,
+   "source": {
+    "kind": "profile",
+    "id": "#xfYO4r1AfnlAxWyE2CSzeX",
+    "book": "campaign"
+   },
+   "live": {
+    "health": 30,
+    "focus": 90,
+    "karma": 2
+   },
+   "notes": ""
+  },
+  {
+   "id": "xf-member-stasis",
+   "templateId": "#xfDKoQlUSxAVn6dNVaGZ1J",
+   "name": "Stasis",
+   "player": "",
+   "profile": "#xfDKoQlUSxAVn6dNVaGZ1J",
+   "character": null,
+   "source": {
+    "kind": "profile",
+    "id": "#xfDKoQlUSxAVn6dNVaGZ1J",
+    "book": "campaign"
+   },
+   "live": {
+    "health": 10,
+    "focus": 115,
+    "karma": 2
+   },
+   "notes": ""
+  },
+  {
+   "id": "xf-member-taboo",
+   "templateId": "#xfbZoKNUxx4FPZT3XCVPKd",
+   "name": "Taboo",
+   "player": "",
+   "profile": "#xfbZoKNUxx4FPZT3XCVPKd",
+   "character": null,
+   "source": {
+    "kind": "profile",
+    "id": "#xfbZoKNUxx4FPZT3XCVPKd",
+    "book": "campaign"
+   },
+   "live": {
+    "health": 60,
+    "focus": 60,
+    "karma": 2
+   },
+   "notes": ""
+  },
+  {
+   "id": "xf-member-tank",
+   "templateId": "#xfPU68h3RduZs7jw8oHnYu",
+   "name": "Tank",
+   "player": "",
+   "profile": "#xfPU68h3RduZs7jw8oHnYu",
+   "character": null,
+   "source": {
+    "kind": "profile",
+    "id": "#xfPU68h3RduZs7jw8oHnYu",
+    "book": "campaign"
+   },
+   "live": {
+    "health": 60,
+    "focus": 150,
+    "karma": 3
+   },
+   "notes": ""
+  }
+ ]
+}

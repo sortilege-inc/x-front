@@ -1,0 +1,67 @@
+# source: campaign/source/sheets/Tank.pdf — the owner's short-form sheet (2025), by convert_heroes.py
+#xfPU68h3RduZs7jw8oHnYu ^"Tank" DEF {
+    EXTENDS #mmrpgCharacter0000000 ^"Character"
+    PROPERTIES {
+        ^"Name" STRING "Tank"
+        ^"Rank" STRING "3"
+        ^"Karma" STRING "3"
+        ^"Health" STRING "60"
+        ^"Health Damage Reduction" STRING "-1"
+        ^"Focus" STRING "150"
+        ^"Focus Damage Reduction" STRING "-"
+        ^"Initiative Modifier" STRING "+5"
+        ^"Speeds" LIST OF #mmrpgSpeed00000000000 ^"Speed" [
+            DEF { ^"Mode" STRING "Run"  ^"Speed" STRING "5" },
+            DEF { ^"Mode" STRING "Climb"  ^"Speed" STRING "3" },
+            DEF { ^"Mode" STRING "Swim"  ^"Speed" STRING "3" },
+            DEF { ^"Mode" STRING "Jump"  ^"Speed" STRING "3" }
+        ]
+        ^"Abilities" LIST OF #mmrpgAbilityLine00000 ^"Ability Line" [
+            DEF { ^"Ability" STRING "Melee"  ^"Ability Score" STRING "0"  ^"Defense Score" STRING "10"  ^"Non-Combat Checks" STRING "+0" },
+            DEF { ^"Ability" STRING "Agility"  ^"Ability Score" STRING "4"  ^"Defense Score" STRING "14"  ^"Non-Combat Checks" STRING "+4" },
+            DEF { ^"Ability" STRING "Resilience"  ^"Ability Score" STRING "2"  ^"Defense Score" STRING "12"  ^"Non-Combat Checks" STRING "+2" },
+            DEF { ^"Ability" STRING "Vigilance"  ^"Ability Score" STRING "5"  ^"Defense Score" STRING "15"  ^"Non-Combat Checks" STRING "+5" },
+            DEF { ^"Ability" STRING "Ego"  ^"Ability Score" STRING "2"  ^"Defense Score" STRING "12"  ^"Non-Combat Checks" STRING "+2" },
+            DEF { ^"Ability" STRING "Logic"  ^"Ability Score" STRING "2"  ^"Defense Score" STRING "12"  ^"Non-Combat Checks" STRING "+2" }
+        ]
+        ^"Damage" LIST OF #mmrpgDamageLine000000 ^"Damage Line" [
+            DEF { ^"Ability" STRING "Melee"  ^"Multiplier" STRING "3"  ^"Ability Score" STRING "0" },
+            DEF { ^"Ability" STRING "Agility"  ^"Multiplier" STRING "3"  ^"Ability Score" STRING "4" },
+            DEF { ^"Ability" STRING "Ego"  ^"Multiplier" STRING "3"  ^"Ability Score" STRING "2" },
+            DEF { ^"Ability" STRING "Logic"  ^"Multiplier" STRING "3"  ^"Ability Score" STRING "2" }
+        ]
+        ^"Traits" LIST OF #mmrpgProfileTrait0000 ^"Profile Trait" [
+            DEF { ^"Name" STRING "Abrasive"  ^"Printed" STRING "Abrasive" },
+            DEF { ^"Name" STRING "Audience"  ^"Printed" STRING "Audience" },
+            DEF { ^"Name" STRING "Connections"  ^"Detail" STRING "Community"  ^"Printed" STRING "Connections (Community)" },
+            DEF { ^"Name" STRING "Fearless"  ^"Printed" STRING "Fearless" },
+            DEF { ^"Name" STRING "Font of Information"  ^"Printed" STRING "Font of Information" },
+            DEF { ^"Name" STRING "Fresh Eyes"  ^"Printed" STRING "Fresh Eyes" },
+            DEF { ^"Name" STRING "Presence"  ^"Printed" STRING "Presence" }
+        ]
+        ^"Tags" LIST OF #mmrpgProfileTrait0000 ^"Profile Trait" [
+            DEF { ^"Name" STRING "Hounded"  ^"Printed" STRING "Hounded" },
+            DEF { ^"Name" STRING "X-Gene"  ^"Printed" STRING "X-Gene" }
+        ]
+        ^"Real Name" STRING "Toya Terrence"
+        ^"Height" STRING "5'10\""
+        ^"Weight" STRING "185 lbs"
+        ^"Gender" STRING "Non-binary"
+        ^"Eyes" STRING "Brown"
+        ^"Hair" STRING "Black"
+        ^"Size" STRING "Medium"
+        ^"Occupation" STRING "Educator"
+        ^"Origin" STRING "Mutant"
+        ^"Teams" STRING "X-FRONT"
+        ^"History" STRING "Had attended the mutant pride march in Tallahassee, tried to go incognito, but when things started getting rough they stepped up to protect the marchers when the police wouldn’t.\n\nHaving faced the seeming failure of protesting and petitioning, Toya has used that rejection to energize their commitment to direct action, having formed X-FRONT with Tabitha."
+        ^"Personality" STRING "As the eldest and co-founder of X-Front, Toya has a presumption to authority and resists accountability.\n\nGoal: They want the freedom to act with the power of the group behind them, but chafe at being told what to do.\n\nBarrier: Given the volatile combination of the members of X-FRONT leadership requires self-control, confidence, and clarity. Ambiguity and recklessness lead to pulling in different directions, impeding progress, and frustrations."
+        ^"Biography Sections" LIST OF #mmrpgBioSection000000 ^"Biography Section" [
+            DEF { ^"Heading" STRING "Current Age"  ^"Text" STRING "22" }
+        ]
+        ^"Powers" LIST OF #mmrpgPowerGroup000000 ^"Power Group" [
+            DEF { ^"Set" STRING "Basic"  ^"Powers" LIST OF #mmrpgPowerEntry000000 ^"Power Entry" [DEF { ^"Name" STRING "Inspiration"  ^"Printed" STRING "Inspiration (Standard, 1 round)" }, DEF { ^"Name" STRING "Sturdy 1"  ^"Printed" STRING "Sturdy 1 (Permanent)" }] },
+            DEF { ^"Set" STRING "Tactics"  ^"Powers" LIST OF #mmrpgPowerEntry000000 ^"Power Entry" [DEF { ^"Name" STRING "Battle Plan"  ^"Printed" STRING "Battle Plan (Standard, 1 round, Cost: 10 Focus)" }, DEF { ^"Name" STRING "Focus Fire"  ^"Printed" STRING "Focus Fire (Standard, Concentration, Cost: 10 Focus)" }, DEF { ^"Name" STRING "Keep Moving"  ^"Printed" STRING "Keep Moving (Reaction, Instant)" }, DEF { ^"Name" STRING "On Your Feet"  ^"Printed" STRING "On Your Feet (Reaction, Instant, Cost: 5 Focus)" }, DEF { ^"Name" STRING "Rally on Me"  ^"Printed" STRING "Rally On Me (Standard, Instant, 10 Focus)" }] },
+            DEF { ^"Set" STRING "Elemental Control: Force"  ^"Powers" LIST OF #mmrpgPowerEntry000000 ^"Power Entry" [DEF { ^"Name" STRING "Elemental Burst (Tank)"  ^"Printed" STRING "Elemental Burst (Standard, Instant, 10 spaces)" }, DEF { ^"Name" STRING "Elemental Blast (Tank)"  ^"Printed" STRING "Elemental Blast (Standard, Instant, Range: 10 Spaces, Cost: 5+ Focus)" }, DEF { ^"Name" STRING "Elemental Barrier (Tank)"  ^"Printed" STRING "Elemental Barrier: Force (Standard, Concentration, Cost: 5 Focus)" }, DEF { ^"Name" STRING "Elemental Protection 1"  ^"Printed" STRING "Elemental Protection (Standard or Reaction, Concentration, Cost: 5 Focus)" }, DEF { ^"Name" STRING "Elemental Sphere (Tank)"  ^"Printed" STRING "Elemental Sphere (Standard or Reaction, Concentration, Cost: 5 Focus)" }] }
+        ]
+    }
+}

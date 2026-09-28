@@ -1,0 +1,65 @@
+# source: campaign/source/sheets/Taboo.pdf — the owner's short-form sheet (2025), by convert_heroes.py
+#xfbZoKNUxx4FPZT3XCVPKd ^"Taboo" DEF {
+    EXTENDS #mmrpgCharacter0000000 ^"Character"
+    PROPERTIES {
+        ^"Name" STRING "Taboo"
+        ^"Rank" STRING "2"
+        ^"Karma" STRING "2"
+        ^"Health" STRING "60"
+        ^"Health Damage Reduction" STRING "-"
+        ^"Focus" STRING "60"
+        ^"Focus Damage Reduction" STRING "-1"
+        ^"Initiative Modifier" STRING "+1"
+        ^"Speeds" LIST OF #mmrpgSpeed00000000000 ^"Speed" [
+            DEF { ^"Mode" STRING "Run"  ^"Speed" STRING "5" },
+            DEF { ^"Mode" STRING "Climb"  ^"Speed" STRING "3" },
+            DEF { ^"Mode" STRING "Swim"  ^"Speed" STRING "3" },
+            DEF { ^"Mode" STRING "Jump"  ^"Speed" STRING "3" }
+        ]
+        ^"Abilities" LIST OF #mmrpgAbilityLine00000 ^"Ability Line" [
+            DEF { ^"Ability" STRING "Melee"  ^"Ability Score" STRING "1"  ^"Defense Score" STRING "11"  ^"Non-Combat Checks" STRING "+1" },
+            DEF { ^"Ability" STRING "Agility"  ^"Ability Score" STRING "2"  ^"Defense Score" STRING "12"  ^"Non-Combat Checks" STRING "+2" },
+            DEF { ^"Ability" STRING "Resilience"  ^"Ability Score" STRING "2"  ^"Defense Score" STRING "12"  ^"Non-Combat Checks" STRING "+2" },
+            DEF { ^"Ability" STRING "Vigilance"  ^"Ability Score" STRING "1"  ^"Defense Score" STRING "11"  ^"Non-Combat Checks" STRING "+1" },
+            DEF { ^"Ability" STRING "Ego"  ^"Ability Score" STRING "3"  ^"Defense Score" STRING "13"  ^"Non-Combat Checks" STRING "+3" },
+            DEF { ^"Ability" STRING "Logic"  ^"Ability Score" STRING "1"  ^"Defense Score" STRING "11"  ^"Non-Combat Checks" STRING "+1" }
+        ]
+        ^"Damage" LIST OF #mmrpgDamageLine000000 ^"Damage Line" [
+            DEF { ^"Ability" STRING "Melee"  ^"Multiplier" STRING "2"  ^"Ability Score" STRING "1" },
+            DEF { ^"Ability" STRING "Agility"  ^"Multiplier" STRING "2"  ^"Ability Score" STRING "2" },
+            DEF { ^"Ability" STRING "Ego"  ^"Multiplier" STRING "2"  ^"Ability Score" STRING "3" },
+            DEF { ^"Ability" STRING "Logic"  ^"Multiplier" STRING "2"  ^"Ability Score" STRING "1" }
+        ]
+        ^"Traits" LIST OF #mmrpgProfileTrait0000 ^"Profile Trait" [
+            DEF { ^"Name" STRING "Battle Ready"  ^"Printed" STRING "Battle Ready" },
+            DEF { ^"Name" STRING "Connections"  ^"Detail" STRING "Mutants"  ^"Printed" STRING "Connections (Mutants)" },
+            DEF { ^"Name" STRING "Fearless"  ^"Printed" STRING "Fearless" },
+            DEF { ^"Name" STRING "Public Speaking"  ^"Printed" STRING "Public Speaking" }
+        ]
+        ^"Tags" LIST OF #mmrpgProfileTrait0000 ^"Profile Trait" [
+            DEF { ^"Name" STRING "Black Market Access"  ^"Printed" STRING "Black Market Access" },
+            DEF { ^"Name" STRING "Hounded"  ^"Printed" STRING "Hounded" },
+            DEF { ^"Name" STRING "X-Gene"  ^"Printed" STRING "X-Gene" },
+            DEF { ^"Name" STRING "Young"  ^"Printed" STRING "Young" }
+        ]
+        ^"Real Name" STRING "Tabitha Fanning"
+        ^"Height" STRING "5'4\""
+        ^"Weight" STRING "122 lbs"
+        ^"Gender" STRING "Female"
+        ^"Eyes" STRING "Green"
+        ^"Hair" STRING "Red"
+        ^"Size" STRING "Medium"
+        ^"Occupation" STRING "Adventurer"
+        ^"Origin" STRING "Mutant"
+        ^"Teams" STRING "X-FRONT"
+        ^"History" STRING "They briefly attended Xavier’s academy and felt that it was cowardly at best. After repeated arguments and conflicts with the teachers, they dropped out.\n\nMet Toya at a mutant pride march that went south, and formed the seeds of X-FRONT together."
+        ^"Personality" STRING "Full of spirit and self-sure.\n\nGoal: Tabitha doesn’t see a future for herself worth having, except if it’s a means to the end of other mutants also having a future. She’s going to fight hard and go down fighting.\n\nBarrier: Tabitha has broken off from those she felt limited her, but that also deprives her of institutional and social support. The future she wants to build, she can’t build alone, but she almost compulsively burns every bridge she crosses."
+        ^"Biography Sections" LIST OF #mmrpgBioSection000000 ^"Biography Section" [
+            DEF { ^"Heading" STRING "Current age"  ^"Text" STRING "17" }
+        ]
+        ^"Powers" LIST OF #mmrpgPowerGroup000000 ^"Power Group" [
+            DEF { ^"Set" STRING "Basic"  ^"Powers" LIST OF #mmrpgPowerEntry000000 ^"Power Entry" [DEF { ^"Name" STRING "Combat Trickery"  ^"Printed" STRING "Combat Trickery (Reaction, Instant, Cost: 5 Focus)" }, DEF { ^"Name" STRING "Inspiration"  ^"Printed" STRING "Inspiration (Standard, 1 Round)" }, DEF { ^"Name" STRING "Uncanny 1"  ^"Printed" STRING "Uncanny (Permanent)" }] },
+            DEF { ^"Set" STRING "Luck"  ^"Powers" LIST OF #mmrpgPowerEntry000000 ^"Power Entry" [DEF { ^"Name" STRING "Jinx You"  ^"Printed" STRING "Jinx You (Standard, Concentration, Cost: 5 Focus per turn, Range: Reach)" }, DEF { ^"Name" STRING "Evil Eye"  ^"Printed" STRING "Evil Eye (Standard, Concentration, Cost: 5 Focus per turn, Range: 10 spaces)" }, DEF { ^"Name" STRING "Lucky Me"  ^"Printed" STRING "Lucky Me (Standard, Concentration, Cost: 5 Focus per turn)" }, DEF { ^"Name" STRING "Lucky You"  ^"Printed" STRING "Lucky You (Standard, Concentration, Cost: 5 Focus per turn, Range: Reach)" }, DEF { ^"Name" STRING "Wish You Luck"  ^"Printed" STRING "Wish You Luck (Standard, Concentration, Cost: 5 Focus per turn, Range: 10 spaces)" }] }
+        ]
+    }
+}

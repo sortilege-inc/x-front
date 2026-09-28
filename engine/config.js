@@ -60,7 +60,7 @@ window.VttConfig = {
     leave: 'Turn back',
   },
   worker: {
-    deployed: '',
+    deployed: 'https://x-front.sortilege.workers.dev',
     local: 'http://localhost:8807',
   },
 };

@@ -92,6 +92,20 @@ window.VttSystem = (function () {
   // the players' side: the table's player view (engine/vtt.js marks it body.player) or the player's page
   const playerSide = () => typeof document !== 'undefined' && (document.body.classList.contains('player') || document.body.classList.contains('play'));
   const COLORS = { party: '#c8102e', cast: '#1d4f9a', marker: '#5b574d' };
+
+  // the rings a token may wear (the table's options menu) and a dozen generic faces for an NPC with
+  // no art (assets/tokens/npc/) — ported from sortilege-vtt-teeth (2026-10-09)
+  const PALETTE = [
+    { name: 'Green', color: '#4f6b3a' }, { name: 'Red', color: '#8f1d22' }, { name: 'Black', color: '#1a1613' }, { name: 'Grey', color: '#6b6154' },
+    { name: 'Ochre', color: '#b9842a' }, { name: 'Blue', color: '#2f4f6b' }, { name: 'Violet', color: '#5b3a6b' }, { name: 'Teal', color: '#2f6b5e' }, { name: 'Rust', color: '#a1481e' }, { name: 'Bone', color: '#efe6d3' },
+  ];
+  function tokenPalette() {
+    return PALETTE.map((c) => Object.assign({}, c));
+  }
+  const ICONS = ['person', 'hood', 'helm', 'crown', 'mitre', 'hat', 'skull', 'wolf', 'crow', 'boar', 'hound', 'purse'];
+  function tokenIcons() {
+    return ICONS.map((id) => ({ id, label: id[0].toUpperCase() + id.slice(1), image: 'assets/tokens/npc/' + id + '.svg' }));
+  }
   const tokenColor = (t) => COLORS[t.kind] || COLORS.marker;
   // a token's words: a hero's Health and Focus as they stand; a copy's, the Narrator's view of it
   function tokenStatus(t) {
@@ -138,7 +152,7 @@ window.VttSystem = (function () {
     byId, MODULE, moduleId, scenes, scene, currentSceneId,
     cast, castIds, castEntries, castRaw, instLabel, addToScene, removeFromScene, copyState, setCopy, COPY_TRACKS,
     maps, mapDef, defaultMapId, legend, mapAssets,
-    tokenSources, tokenColor, tokenStatus, selectToken, tokenMenu,
+    tokenSources, tokenColor, tokenPalette, tokenIcons, tokenStatus, selectToken, tokenMenu,
     liveSheet, readCharacter, downloadCharacter, memberSubtitle, makeCharacter,
   };
 })();
